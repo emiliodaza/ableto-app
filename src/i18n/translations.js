@@ -23,7 +23,7 @@ export const t = {
       badge: 'Human Potential Technology',
       headline1: 'Elevating',
       headline2: 'Human Capabilities.',
-      sub: 'We engineer technology that expands what people can do — from gesture-based interfaces to AI-powered learning systems. Accessibility is the foundation; human potential is the horizon.',
+      sub: 'We engineer technology that expands what people can do: from gesture-based interfaces to AI-powered learning systems. Accessibility is the foundation; human potential is the horizon.',
       cta1: 'Meet the Team',
       cta2: 'Explore Products',
       stat1Label: 'Projects',
