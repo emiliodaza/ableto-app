@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// Team member data — edit this file directly to update the website.
+// Team member data - edit this file directly to update the website.
 //
 // Fields:
 //   id           (string)    unique identifier
@@ -82,21 +82,6 @@ export const members = [
   },
 
   // ── Engineering ──────────────────────────────────────────────────────────────
-  {
-    id: '4',
-    name: 'Sebastian Huaypar',
-    role: 'Software Engineer',
-    university: 'UNI',
-    department: 'Engineering',
-    isFounder: false,
-    isExecutive: false,
-    showInEng: false,
-    bio: 'Builds robust backend systems and APIs powering AbleTo\'s accessibility platforms.',
-    photo: '',
-    linkedin: '',
-    email: '',
-    projects: ['Touchless'],
-  },
   {
     id: '5',
     name: 'Isabella Montoya',

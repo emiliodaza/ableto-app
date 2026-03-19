@@ -45,11 +45,6 @@ const pillIcons = [<EyeIcon />, <PeopleIcon />, <MicIcon />]
 const pillColors = ['#3b82f6', '#8b5cf6', '#06b6d4']
 const pillDelays = ['0s', '0.3s', '0.6s']
 
-const stats = [
-  { value: '50+' },
-  { value: '15+' },
-  { value: '99%' },
-]
 
 export default function Home() {
   const { lang } = useLang()
@@ -61,8 +56,6 @@ export default function Home() {
   }, [])
 
   const pillLabels = [tr.home.pill1, tr.home.pill2, tr.home.pill3]
-  const statLabels = [tr.home.stat1Label, tr.home.stat2Label, tr.home.stat3Label]
-
   const features = pillLabels.map((label, i) => ({
     icon: pillIcons[i],
     label,
@@ -257,37 +250,6 @@ export default function Home() {
               </div>
 
               {/* Stats */}
-              <div style={{
-                display: 'flex',
-                gap: '0',
-                paddingTop: '32px',
-                borderTop: '1px solid rgba(255,255,255,0.06)',
-              }}>
-                {stats.map((stat, i) => (
-                  <div key={i} style={{
-                    flex: 1,
-                    textAlign: 'center',
-                    borderRight: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
-                    padding: '0 16px',
-                  }}>
-                    <div style={{
-                      fontSize: '28px',
-                      fontWeight: '800',
-                      color: 'white',
-                      letterSpacing: '-0.02em',
-                      background: 'linear-gradient(135deg, #ffffff 0%, #93c5fd 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                    }}>
-                      {stat.value}
-                    </div>
-                    <div style={{ fontSize: '12px', color: '#6b7280', fontWeight: '500', marginTop: '2px' }}>
-                      {statLabels[i]}
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
 
