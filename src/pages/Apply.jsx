@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useLang } from '../contexts/LanguageContext'
 import { t } from '../i18n/translations'
+import emailjs from '@emailjs/browser'
+import { EMAILJS_SERVICE_ID, EMAILJS_APPLY_TEMPLATE, EMAILJS_PUBLIC_KEY } from '../config/emailjs'
 
 const CheckCircleIcon = () => (
   <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -38,19 +40,45 @@ export default function Apply() {
   })
   const [submitted, setSubmitted] = useState(false)
   const [focused, setFocused] = useState(null)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState('')
 
   const handleChange = (e) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    setSending(true)
+    setError('')
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_APPLY_TEMPLATE,
+        {
+          full_name: form.fullName,
+          email: form.email,
+          phone: form.phone || 'Not provided',
+          role: form.role,
+          skills: form.skills,
+          motivation: form.motivation,
+          portfolio: form.portfolio || 'Not provided',
+          linkedin: form.linkedin || 'Not provided',
+          resume: form.resume,
+        },
+        EMAILJS_PUBLIC_KEY
+      )
+      setSubmitted(true)
+    } catch (err) {
+      setError('Something went wrong. Please email us directly at team@abletolab.org')
+    } finally {
+      setSending(false)
+    }
   }
 
   const inputStyle = (name) => ({
     width: '100%',
-    background: focused === name ? 'rgba(37,99,235,0.05)' : 'rgba(255,255,255,0.04)',
+    background: focused === name ? 'rgba(37,99,235,0.11)' : 'rgba(255,255,255,0.04)',
     border: `1px solid ${focused === name ? 'rgba(37,99,235,0.5)' : 'rgba(255,255,255,0.08)'}`,
     color: 'white',
     borderRadius: '10px',
@@ -75,7 +103,7 @@ export default function Apply() {
 
   return (
     <div style={{
-      background: 'linear-gradient(180deg, #05050f 0%, #0a0a1a 50%, #0d0d2b 100%)',
+      background: 'linear-gradient(180deg, #040e1e 0%, #071629 50%, #0a1c38 100%)',
       minHeight: '100vh',
       paddingTop: '88px',
       position: 'relative',
@@ -86,13 +114,13 @@ export default function Apply() {
         <div style={{
           position: 'absolute', top: '0%', right: '-5%',
           width: '600px', height: '600px',
-          background: 'radial-gradient(circle, rgba(37,99,235,0.07) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 60%)',
           borderRadius: '50%',
         }} />
         <div style={{
           position: 'absolute', bottom: '10%', left: '-5%',
           width: '400px', height: '400px',
-          background: 'radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(37,99,235,0.11) 0%, transparent 60%)',
           borderRadius: '50%',
         }} />
       </div>
@@ -176,20 +204,20 @@ export default function Apply() {
                 }}>
                   <span style={{ color: '#3b82f6' }}><StarIcon /></span>
                   <span style={{ color: '#93c5fd', fontSize: '13px', fontWeight: '500' }}>
-                    We look forward to meeting you!
+                    {tr.apply.lookingForward}
                   </span>
                 </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
                 <h2 style={{ fontSize: '20px', fontWeight: '700', color: 'white', marginBottom: '28px' }}>
-                  Your Application
+                  {tr.apply.formTitle}
                 </h2>
 
                 {/* Personal Info */}
                 <div style={{ marginBottom: '8px' }}>
                   <p style={{ fontSize: '11px', fontWeight: '700', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px', paddingBottom: '8px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                    Personal Information
+                    {tr.apply.sectionPersonal}
                   </p>
                 </div>
 
@@ -202,7 +230,7 @@ export default function Apply() {
                     onChange={handleChange}
                     onFocus={() => setFocused('fullName')}
                     onBlur={() => setFocused(null)}
-                    placeholder="Your full name"
+                    placeholder={tr.apply.namePlaceholder}
                     required
                     style={inputStyle('fullName')}
                   />
@@ -218,7 +246,7 @@ export default function Apply() {
                       onChange={handleChange}
                       onFocus={() => setFocused('email')}
                       onBlur={() => setFocused(null)}
-                      placeholder="you@example.com"
+                      placeholder={tr.apply.emailPlaceholder}
                       required
                       style={inputStyle('email')}
                     />
@@ -232,7 +260,7 @@ export default function Apply() {
                       onChange={handleChange}
                       onFocus={() => setFocused('phone')}
                       onBlur={() => setFocused(null)}
-                      placeholder="+51 999 999 999"
+                      placeholder={tr.apply.phonePlaceholder}
                       style={inputStyle('phone')}
                     />
                   </div>
@@ -241,7 +269,7 @@ export default function Apply() {
                 {/* Role */}
                 <div style={{ marginTop: '8px', marginBottom: '8px' }}>
                   <p style={{ fontSize: '11px', fontWeight: '700', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px', paddingBottom: '8px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                    Role & Skills
+                    {tr.apply.sectionRole}
                   </p>
                 </div>
 
@@ -261,9 +289,9 @@ export default function Apply() {
                       cursor: 'pointer',
                     }}
                   >
-                    <option value="" disabled style={{ background: '#0d0d2b' }}>{tr.apply.rolePlaceholder}</option>
+                    <option value="" disabled style={{ background: '#0a1c38' }}>{tr.apply.rolePlaceholder}</option>
                     {tr.apply.roles.map(r => (
-                      <option key={r} value={r} style={{ background: '#0d0d2b' }}>{r}</option>
+                      <option key={r} value={r} style={{ background: '#0a1c38' }}>{r}</option>
                     ))}
                   </select>
                 </div>
@@ -286,7 +314,7 @@ export default function Apply() {
                 {/* Motivation */}
                 <div style={{ marginTop: '8px', marginBottom: '8px' }}>
                   <p style={{ fontSize: '11px', fontWeight: '700', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px', paddingBottom: '8px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                    Motivation
+                    {tr.apply.sectionMotivation}
                   </p>
                 </div>
 
@@ -308,7 +336,7 @@ export default function Apply() {
                 {/* Links */}
                 <div style={{ marginTop: '8px', marginBottom: '8px' }}>
                   <p style={{ fontSize: '11px', fontWeight: '700', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px', paddingBottom: '8px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                    Links & Portfolio
+                    {tr.apply.sectionLinks}
                   </p>
                 </div>
 
@@ -321,7 +349,7 @@ export default function Apply() {
                     onChange={handleChange}
                     onFocus={() => setFocused('portfolio')}
                     onBlur={() => setFocused(null)}
-                    placeholder="https://github.com/username"
+                    placeholder={tr.apply.portfolioPlaceholder}
                     style={inputStyle('portfolio')}
                   />
                 </div>
@@ -335,7 +363,7 @@ export default function Apply() {
                     onChange={handleChange}
                     onFocus={() => setFocused('linkedin')}
                     onBlur={() => setFocused(null)}
-                    placeholder="https://linkedin.com/in/username"
+                    placeholder={tr.apply.linkedinPlaceholder}
                     style={inputStyle('linkedin')}
                   />
                 </div>
@@ -349,7 +377,7 @@ export default function Apply() {
                     onChange={handleChange}
                     onFocus={() => setFocused('resume')}
                     onBlur={() => setFocused(null)}
-                    placeholder="https://drive.google.com/..."
+                    placeholder={tr.apply.resumePlaceholder}
                     required
                     style={inputStyle('resume')}
                   />
@@ -357,6 +385,7 @@ export default function Apply() {
 
                 <button
                   type="submit"
+                  disabled={sending}
                   style={{
                     width: '100%',
                     background: '#2563eb',
@@ -366,16 +395,22 @@ export default function Apply() {
                     padding: '15px 24px',
                     fontWeight: '700',
                     fontSize: '15px',
-                    cursor: 'pointer',
+                    cursor: sending ? 'not-allowed' : 'pointer',
                     transition: 'all 0.2s ease',
                     boxShadow: '0 4px 20px rgba(37,99,235,0.35)',
                     marginTop: '8px',
+                    opacity: sending ? 0.7 : 1,
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.background = '#1d4ed8'; e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 30px rgba(37,99,235,0.5)'; }}
+                  onMouseEnter={e => { if (!sending) { e.currentTarget.style.background = '#1d4ed8'; e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 30px rgba(37,99,235,0.5)'; } }}
                   onMouseLeave={e => { e.currentTarget.style.background = '#2563eb'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(37,99,235,0.35)'; }}
                 >
-                  {tr.apply.submit}
+                  {sending ? 'Submitting...' : tr.apply.submit}
                 </button>
+                {error && (
+                  <p style={{ color: '#f87171', fontSize: '13px', marginTop: '12px', textAlign: 'center' }}>
+                    {error}
+                  </p>
+                )}
               </form>
             )}
           </div>
@@ -420,13 +455,13 @@ export default function Apply() {
 
             {/* Process */}
             <div style={{
-              background: 'rgba(37,99,235,0.05)',
+              background: 'rgba(37,99,235,0.11)',
               border: '1px solid rgba(37,99,235,0.15)',
               borderRadius: '20px',
               padding: '28px',
             }}>
               <h3 style={{ fontSize: '15px', fontWeight: '700', color: 'white', marginBottom: '16px' }}>
-                Our Process
+                {tr.apply.ourProcess}
               </h3>
               {tr.apply.steps.map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: '12px', marginBottom: i < tr.apply.steps.length - 1 ? '14px' : 0 }}>
@@ -456,10 +491,10 @@ export default function Apply() {
               textAlign: 'center',
             }}>
               <p style={{ fontSize: '11px', fontWeight: '600', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
-                Currently Accepting
+                {tr.apply.accepting}
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', justifyContent: 'center' }}>
-                {['Engineers', 'Designers', 'Researchers'].map(role => (
+                {tr.apply.acceptingRoles.map(role => (
                   <span key={role} style={{
                     background: 'rgba(37,99,235,0.1)',
                     border: '1px solid rgba(37,99,235,0.2)',

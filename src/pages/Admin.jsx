@@ -68,11 +68,11 @@ function getInitials(name) {
 
 function getAvatarGradient(id) {
   const gradients = [
-    'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)',
-    'linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%)',
-    'linear-gradient(135deg, #06b6d4 0%, #2563eb 100%)',
-    'linear-gradient(135deg, #1d4ed8 0%, #4f46e5 100%)',
-    'linear-gradient(135deg, #4f46e5 0%, #0891b2 100%)',
+    'linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%)',
+    'linear-gradient(135deg, #2563eb 0%, #3b82f6 100%)',
+    'linear-gradient(135deg, #1e40af 0%, #2563eb 100%)',
+    'linear-gradient(135deg, #1d4ed8 0%, #60a5fa 100%)',
+    'linear-gradient(135deg, #2563eb 0%, #93c5fd 100%)',
   ]
   return gradients[(parseInt(id) - 1) % gradients.length]
 }
@@ -217,7 +217,7 @@ function MemberModal({ member, onSave, onClose }) {
 
           <div style={{ marginBottom: '28px' }}>
             <label style={labelStyle}>Projects (comma-separated)</label>
-            <input type="text" name="projects" value={form.projects} onChange={handleChange} onFocus={() => setFocused('projects')} onBlur={() => setFocused(null)} placeholder="Touchless, Braille Instruction System" style={inputStyle('projects')} />
+            <input type="text" name="projects" value={form.projects} onChange={handleChange} onFocus={() => setFocused('projects')} onBlur={() => setFocused(null)} placeholder="Touchless, DotSense" style={inputStyle('projects')} />
           </div>
 
           <div style={{ display: 'flex', gap: '12px' }}>
@@ -402,7 +402,7 @@ export default function Admin() {
       }}>
         {/* Background glows */}
         <div style={{ position: 'absolute', top: '20%', left: '20%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 60%)', borderRadius: '50%', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '20%', right: '20%', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 60%)', borderRadius: '50%', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '20%', right: '20%', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 60%)', borderRadius: '50%', pointerEvents: 'none' }} />
 
         <div style={{
           background: 'rgba(255,255,255,0.02)',

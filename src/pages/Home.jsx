@@ -42,7 +42,7 @@ const CheckIcon = () => (
 )
 
 const pillIcons = [<EyeIcon />, <PeopleIcon />, <MicIcon />]
-const pillColors = ['#3b82f6', '#8b5cf6', '#06b6d4']
+const pillColors = ['#3b82f6', '#2563eb', '#1d4ed8']
 const pillDelays = ['0s', '0.3s', '0.6s']
 
 
@@ -64,7 +64,7 @@ export default function Home() {
   }))
 
   const pageStyle = {
-    background: 'linear-gradient(135deg, #05050f 0%, #080816 50%, #05050f 100%)',
+    background: 'linear-gradient(135deg, #040e1e 0%, #061524 50%, #040e1e 100%)',
     minHeight: '100vh',
     overflow: 'hidden',
   }
@@ -119,7 +119,7 @@ export default function Home() {
             right: '5%',
             width: '600px',
             height: '600px',
-            background: 'radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(37,99,235,0.16) 0%, transparent 70%)',
             borderRadius: '50%',
           }} />
           <div style={{
@@ -249,7 +249,6 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Stats */}
             </div>
           </div>
 
@@ -295,7 +294,7 @@ export default function Home() {
                 width: '120px',
                 height: '120px',
                 borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(37,99,235,0.3) 0%, rgba(37,99,235,0.05) 70%)',
+                background: 'radial-gradient(circle, rgba(37,99,235,0.3) 0%, rgba(37,99,235,0.11) 70%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -322,10 +321,10 @@ export default function Home() {
                   width: '8px',
                   height: '8px',
                   borderRadius: '50%',
-                  background: i % 2 === 0 ? '#3b82f6' : '#8b5cf6',
+                  background: i % 2 === 0 ? '#3b82f6' : '#60a5fa',
                   transform: `rotate(${angle}deg) translateX(130px)`,
                   opacity: 0.7,
-                  boxShadow: `0 0 8px ${i % 2 === 0 ? '#3b82f6' : '#8b5cf6'}`,
+                  boxShadow: `0 0 8px ${i % 2 === 0 ? '#3b82f6' : '#60a5fa'}`,
                 }} />
               ))}
             </div>
@@ -388,7 +387,7 @@ export default function Home() {
       {/* Mission Section */}
       <section style={{
         padding: '100px 0',
-        background: 'linear-gradient(180deg, #05050f 0%, #0a0a1a 50%, #0d0d2b 100%)',
+        background: 'linear-gradient(180deg, #040e1e 0%, #061524 100%)',
         position: 'relative',
         overflow: 'hidden',
       }}>
@@ -399,7 +398,7 @@ export default function Home() {
           transform: 'translate(-50%, -50%)',
           width: '800px',
           height: '800px',
-          background: 'radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(37,99,235,0.13) 0%, transparent 60%)',
           borderRadius: '50%',
           pointerEvents: 'none',
         }} />
@@ -444,7 +443,7 @@ export default function Home() {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '6px',
-                  background: 'rgba(37,99,235,0.08)',
+                  background: 'rgba(37,99,235,0.16)',
                   border: '1px solid rgba(37,99,235,0.2)',
                   borderRadius: '100px',
                   padding: '6px 14px',
@@ -484,10 +483,86 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Market Opportunity Section */}
+      <section style={{
+        padding: '80px 0',
+        background: 'linear-gradient(180deg, #061524 0%, #071629 100%)',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        <div style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%,-50%)',
+          width: '700px',
+          height: '500px',
+          background: 'radial-gradient(ellipse, rgba(37,99,235,0.13) 0%, transparent 60%)',
+          borderRadius: '50%',
+          pointerEvents: 'none',
+        }} />
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px', position: 'relative', zIndex: 1 }}>
+          <div style={{ textAlign: 'center', marginBottom: '52px' }}>
+            <span style={{ fontSize: '11px', fontWeight: '700', color: '#3b82f6', letterSpacing: '0.12em', textTransform: 'uppercase', display: 'block', marginBottom: '12px' }}>
+              {tr.home.impactBadge}
+            </span>
+            <h2 style={{ fontSize: 'clamp(26px, 4vw, 38px)', fontWeight: '800', color: 'white', letterSpacing: '-0.02em', marginBottom: '16px', lineHeight: 1.2 }}>
+              {tr.home.impactTitle}
+            </h2>
+            <p style={{ color: '#9ca3af', fontSize: '15px', lineHeight: 1.75, maxWidth: '520px', margin: '0 auto' }}>
+              {tr.home.impactSub}
+            </p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
+            {[
+              { value: tr.home.metric1Val, label: tr.home.metric1Label, note: tr.home.metric1Note, accent: '#3b82f6' },
+              { value: tr.home.metric2Val, label: tr.home.metric2Label, note: tr.home.metric2Note, accent: '#2563eb' },
+              { value: tr.home.metric3Val, label: tr.home.metric3Label, note: tr.home.metric3Note, accent: '#1d4ed8' },
+              { value: tr.home.metric4Val, label: tr.home.metric4Label, note: tr.home.metric4Note, accent: '#3b82f6' },
+            ].map((metric, i) => (
+              <div
+                key={i}
+                style={{
+                  background: 'rgba(255,255,255,0.02)',
+                  border: '1px solid rgba(255,255,255,0.07)',
+                  borderRadius: '16px',
+                  padding: '28px 20px',
+                  textAlign: 'center',
+                  transition: 'all 0.3s ease',
+                  cursor: 'default',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(37,99,235,0.13)'; e.currentTarget.style.borderColor = 'rgba(37,99,235,0.25)'; e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 16px 48px rgba(37,99,235,0.1)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
+              >
+                <div style={{
+                  fontSize: '38px',
+                  fontWeight: '900',
+                  letterSpacing: '-0.03em',
+                  background: 'linear-gradient(135deg, #3b82f6 0%, #93c5fd 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  lineHeight: 1,
+                  marginBottom: '10px',
+                }}>
+                  {metric.value}
+                </div>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#e5e7eb', marginBottom: '6px', lineHeight: 1.4 }}>
+                  {metric.label}
+                </div>
+                <div style={{ fontSize: '11px', color: '#4b5563', fontWeight: '500', letterSpacing: '0.02em' }}>
+                  {metric.note}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Products Teaser Section */}
       <section style={{
         padding: '100px 0',
-        background: '#05050f',
+        background: 'linear-gradient(180deg, #071629 0%, #040e1e 100%)',
         position: 'relative',
       }}>
         <div style={{
@@ -513,10 +588,11 @@ export default function Home() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
             {[
               {
-                title: 'Touchless',
-                badge: 'Gesture-Based',
+                title: tr.home.touchlessCardTitle,
+                badge: tr.home.touchlessCardBadge,
                 desc: tr.home.touchlessShort,
                 color: '#3b82f6',
+                inDev: true,
                 icon: (
                   <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
                     <circle cx="20" cy="20" r="19" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="3 3"/>
@@ -527,19 +603,19 @@ export default function Home() {
                 ),
               },
               {
-                title: 'Braille Instruction System',
-                badge: 'AI-Powered',
-                desc: tr.home.brailleShort,
-                color: '#8b5cf6',
+                title: tr.home.dotSenseCardTitle,
+                badge: tr.home.dotSenseCardBadge,
+                desc: tr.home.dotSenseShort,
+                color: '#2563eb',
                 icon: (
                   <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <rect x="6" y="10" width="28" height="20" rx="3" stroke="#8b5cf6" strokeWidth="1.5"/>
-                    <circle cx="13" cy="18" r="2" fill="#8b5cf6"/>
-                    <circle cx="20" cy="18" r="2" fill="#a78bfa"/>
-                    <circle cx="27" cy="18" r="2" fill="#8b5cf6"/>
-                    <circle cx="13" cy="25" r="2" fill="#a78bfa"/>
-                    <circle cx="20" cy="25" r="2" fill="#8b5cf6"/>
-                    <circle cx="27" cy="25" r="2" fill="#a78bfa"/>
+                    <rect x="6" y="10" width="28" height="20" rx="3" stroke="#2563eb" strokeWidth="1.5"/>
+                    <circle cx="13" cy="18" r="2" fill="#2563eb"/>
+                    <circle cx="20" cy="18" r="2" fill="#60a5fa"/>
+                    <circle cx="27" cy="18" r="2" fill="#2563eb"/>
+                    <circle cx="13" cy="25" r="2" fill="#60a5fa"/>
+                    <circle cx="20" cy="25" r="2" fill="#2563eb"/>
+                    <circle cx="27" cy="25" r="2" fill="#60a5fa"/>
                   </svg>
                 ),
               },
@@ -573,19 +649,38 @@ export default function Home() {
                   }}
                 >
                   <div style={{ marginBottom: '20px' }}>{product.icon}</div>
-                  <div style={{
-                    display: 'inline-block',
-                    background: `${product.color}15`,
-                    border: `1px solid ${product.color}30`,
-                    borderRadius: '100px',
-                    padding: '3px 10px',
-                    fontSize: '11px',
-                    fontWeight: '600',
-                    color: product.color,
-                    letterSpacing: '0.05em',
-                    marginBottom: '12px',
-                  }}>
-                    {product.badge}
+                  <div style={{ display: 'flex', gap: '8px', alignItems: 'center', marginBottom: '12px', flexWrap: 'wrap' }}>
+                    <div style={{
+                      display: 'inline-block',
+                      background: `${product.color}15`,
+                      border: `1px solid ${product.color}30`,
+                      borderRadius: '100px',
+                      padding: '3px 10px',
+                      fontSize: '11px',
+                      fontWeight: '600',
+                      color: product.color,
+                      letterSpacing: '0.05em',
+                    }}>
+                      {product.badge}
+                    </div>
+                    {product.inDev && (
+                      <div style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                        background: 'rgba(234,179,8,0.08)',
+                        border: '1px solid rgba(234,179,8,0.28)',
+                        borderRadius: '100px',
+                        padding: '3px 9px',
+                        fontSize: '10px',
+                        fontWeight: '700',
+                        color: '#eab308',
+                        letterSpacing: '0.05em',
+                      }}>
+                        <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#eab308' }} />
+                        {tr.products.touchlessInDev}
+                      </div>
+                    )}
                   </div>
                   <h3 style={{ fontSize: '20px', fontWeight: '700', color: 'white', marginBottom: '12px', letterSpacing: '-0.01em' }}>
                     {product.title}

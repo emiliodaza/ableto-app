@@ -2,13 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useLang } from '../contexts/LanguageContext'
 import { t } from '../i18n/translations'
-
-const LogoIcon = () => (
-  <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="16" cy="16" r="16" fill="#2563eb" />
-    <text x="16" y="21" textAnchor="middle" fill="white" fontSize="16" fontWeight="800" fontFamily="Inter, sans-serif">A</text>
-  </svg>
-)
+import ableLogo from '../assets/dotsense_logo.jpeg'
 
 const LinkedInIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -30,7 +24,7 @@ export default function Footer() {
   const tr = t[lang]
 
   const footerStyle = {
-    background: 'linear-gradient(180deg, #05050f 0%, #0a0a1a 100%)',
+    background: 'linear-gradient(180deg, #040e1e 0%, #071629 100%)',
     borderTop: '1px solid rgba(255,255,255,0.06)',
     padding: '60px 0 32px',
   }
@@ -81,7 +75,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-              <LogoIcon />
+              <img src={ableLogo} alt="AbleTo" style={{ height: '32px', width: '32px', objectFit: 'contain', borderRadius: '6px' }} />
               <span style={{ fontSize: '18px', fontWeight: '800', color: 'white', letterSpacing: '-0.02em' }}>
                 Able<span style={{ color: '#3b82f6' }}>To</span>
               </span>
@@ -91,7 +85,7 @@ export default function Footer() {
             </p>
             <div style={{ display: 'flex', gap: '12px', marginTop: '20px' }}>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/abletoproject/?viewAsMember=true"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -109,7 +103,7 @@ export default function Footer() {
                 <LinkedInIcon />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/able.t0/"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -154,7 +148,7 @@ export default function Footer() {
               onMouseEnter={e => e.target.style.color = '#3b82f6'}
               onMouseLeave={e => e.target.style.color = '#9ca3af'}
             >
-              Touchless
+              {tr.footer.product1}
             </Link>
             <Link
               to="/products"
@@ -162,37 +156,37 @@ export default function Footer() {
               onMouseEnter={e => e.target.style.color = '#3b82f6'}
               onMouseLeave={e => e.target.style.color = '#9ca3af'}
             >
-              Braille Instruction System
+              {tr.footer.product2}
             </Link>
           </div>
 
           {/* Legal */}
           <div>
             <p style={headingStyle}>{tr.footer.legal}</p>
-            <a
-              href="#"
+            <Link
+              to="/privacy"
               style={linkStyle}
               onMouseEnter={e => e.target.style.color = '#3b82f6'}
               onMouseLeave={e => e.target.style.color = '#9ca3af'}
             >
               {tr.footer.privacy}
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/terms"
               style={linkStyle}
               onMouseEnter={e => e.target.style.color = '#3b82f6'}
               onMouseLeave={e => e.target.style.color = '#9ca3af'}
             >
               {tr.footer.terms}
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/cookies"
               style={linkStyle}
               onMouseEnter={e => e.target.style.color = '#3b82f6'}
               onMouseLeave={e => e.target.style.color = '#9ca3af'}
             >
               {tr.footer.cookies}
-            </a>
+            </Link>
           </div>
         </div>
 

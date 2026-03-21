@@ -2,13 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useLang } from '../contexts/LanguageContext'
 import { t } from '../i18n/translations'
-
-const LogoIcon = () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="16" cy="16" r="16" fill="#2563eb" />
-    <text x="16" y="21" textAnchor="middle" fill="white" fontSize="16" fontWeight="800" fontFamily="Inter, sans-serif">A</text>
-  </svg>
-)
+import ableLogo from '../assets/dotsense_logo.jpeg'
 
 const MenuIcon = () => (
   <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -165,13 +159,13 @@ export default function Navbar() {
       <nav style={navStyle}>
         <div style={innerStyle}>
           <Link to="/" style={logoStyle}>
-            <LogoIcon />
+            <img src={ableLogo} alt="AbleTo" style={{ height: '32px', width: '32px', objectFit: 'contain', borderRadius: '6px' }} />
             <div style={logoTextStyle}>
               <span style={{ fontSize: '16px', fontWeight: '800', color: 'white', letterSpacing: '-0.02em' }}>
                 Able<span style={{ color: '#3b82f6' }}>To</span>
               </span>
               <span style={{ fontSize: '9px', color: '#6b7280', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                accessibility tech
+                {tr.nav.subtitle}
               </span>
             </div>
           </Link>

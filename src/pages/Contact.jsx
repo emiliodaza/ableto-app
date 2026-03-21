@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useLang } from '../contexts/LanguageContext'
 import { t } from '../i18n/translations'
+import emailjs from '@emailjs/browser'
+import { EMAILJS_SERVICE_ID, EMAILJS_CONTACT_TEMPLATE, EMAILJS_PUBLIC_KEY } from '../config/emailjs'
 
 const LocationIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -50,6 +52,8 @@ export default function Contact() {
   })
   const [submitted, setSubmitted] = useState(false)
   const [focused, setFocused] = useState(null)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState('')
 
   const contactInfo = [
     {
@@ -64,7 +68,7 @@ export default function Contact() {
       label: tr.contact.emailLabel,
       value: tr.contact.emailVal,
       sub: '',
-      color: '#8b5cf6',
+      color: '#3b82f6',
       href: `mailto:${tr.contact.emailVal}`,
     },
     {
@@ -80,14 +84,33 @@ export default function Contact() {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    setSending(true)
+    setError('')
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_CONTACT_TEMPLATE,
+        {
+          from_name: `${form.firstName} ${form.lastName}`,
+          from_email: form.email,
+          subject: form.subject,
+          message: form.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      )
+      setSubmitted(true)
+    } catch (err) {
+      setError('Something went wrong. Please email us directly at team@abletolab.org')
+    } finally {
+      setSending(false)
+    }
   }
 
   const inputStyle = (name) => ({
     width: '100%',
-    background: focused === name ? 'rgba(37,99,235,0.05)' : 'rgba(255,255,255,0.04)',
+    background: focused === name ? 'rgba(37,99,235,0.11)' : 'rgba(255,255,255,0.04)',
     border: `1px solid ${focused === name ? 'rgba(37,99,235,0.5)' : 'rgba(255,255,255,0.08)'}`,
     color: 'white',
     borderRadius: '10px',
@@ -110,7 +133,7 @@ export default function Contact() {
 
   return (
     <div style={{
-      background: 'linear-gradient(180deg, #05050f 0%, #0a0a1a 50%, #0d0d2b 100%)',
+      background: 'linear-gradient(180deg, #040e1e 0%, #071629 50%, #0a1c38 100%)',
       minHeight: '100vh',
       paddingTop: '88px',
       position: 'relative',
@@ -121,13 +144,13 @@ export default function Contact() {
         <div style={{
           position: 'absolute', top: '5%', left: '-5%',
           width: '500px', height: '500px',
-          background: 'radial-gradient(circle, rgba(37,99,235,0.07) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 60%)',
           borderRadius: '50%',
         }} />
         <div style={{
           position: 'absolute', bottom: '10%', right: '-5%',
           width: '400px', height: '400px',
-          background: 'radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(37,99,235,0.13) 0%, transparent 60%)',
           borderRadius: '50%',
         }} />
       </div>
@@ -306,6 +329,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
+                  disabled={sending}
                   style={{
                     width: '100%',
                     background: '#2563eb',
@@ -315,19 +339,25 @@ export default function Contact() {
                     padding: '14px 24px',
                     fontWeight: '600',
                     fontSize: '15px',
-                    cursor: 'pointer',
+                    cursor: sending ? 'not-allowed' : 'pointer',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     gap: '8px',
                     transition: 'all 0.2s ease',
                     boxShadow: '0 4px 20px rgba(37,99,235,0.35)',
+                    opacity: sending ? 0.7 : 1,
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.background = '#1d4ed8'; e.currentTarget.style.boxShadow = '0 8px 30px rgba(37,99,235,0.5)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+                  onMouseEnter={e => { if (!sending) { e.currentTarget.style.background = '#1d4ed8'; e.currentTarget.style.boxShadow = '0 8px 30px rgba(37,99,235,0.5)'; e.currentTarget.style.transform = 'translateY(-1px)'; } }}
                   onMouseLeave={e => { e.currentTarget.style.background = '#2563eb'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(37,99,235,0.35)'; e.currentTarget.style.transform = 'translateY(0)'; }}
                 >
-                  <SendIcon /> {tr.contact.send}
+                  <SendIcon /> {sending ? 'Sending...' : tr.contact.send}
                 </button>
+                {error && (
+                  <p style={{ color: '#f87171', fontSize: '13px', marginTop: '12px', textAlign: 'center' }}>
+                    {error}
+                  </p>
+                )}
               </form>
             )}
           </div>
@@ -383,7 +413,7 @@ export default function Contact() {
 
             {/* Quick note */}
             <div style={{
-              background: 'rgba(37,99,235,0.06)',
+              background: 'rgba(37,99,235,0.13)',
               border: '1px solid rgba(37,99,235,0.15)',
               borderRadius: '16px',
               padding: '20px',

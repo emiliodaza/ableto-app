@@ -19,196 +19,209 @@ const ArrowRight = () => (
 const TouchlessIllustration = () => (
   <svg width="100%" height="100%" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.3"/>
+      <radialGradient id="tglow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.2"/>
         <stop offset="100%" stopColor="#3b82f6" stopOpacity="0"/>
       </radialGradient>
-      <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.15"/>
-        <stop offset="100%" stopColor="#60a5fa" stopOpacity="0"/>
-      </radialGradient>
-      <filter id="blur1">
-        <feGaussianBlur stdDeviation="4"/>
-      </filter>
     </defs>
 
     {/* Background glow */}
-    <circle cx="200" cy="160" r="140" fill="url(#glow1)"/>
-    <circle cx="200" cy="160" r="120" fill="url(#glow2)"/>
+    <circle cx="200" cy="148" r="130" fill="url(#tglow)"/>
 
-    {/* Screen/Monitor */}
-    <rect x="100" y="80" width="200" height="140" rx="12" fill="rgba(13,13,43,0.8)" stroke="#2563eb" strokeWidth="1.5"/>
-    <rect x="110" y="90" width="180" height="120" rx="8" fill="rgba(37,99,235,0.08)"/>
-    {/* Screen content */}
-    <rect x="125" y="105" width="70" height="8" rx="4" fill="rgba(59,130,246,0.4)"/>
-    <rect x="125" y="120" width="110" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
-    <rect x="125" y="133" width="90" height="6" rx="3" fill="rgba(255,255,255,0.07)"/>
-    {/* Cursor indicator on screen */}
-    <circle cx="235" cy="145" r="8" fill="rgba(37,99,235,0.3)" stroke="#3b82f6" strokeWidth="1.5"/>
-    <circle cx="235" cy="145" r="3" fill="#3b82f6"/>
-    {/* Stand */}
-    <rect x="185" y="220" width="30" height="16" rx="4" fill="rgba(37,99,235,0.3)" stroke="#2563eb" strokeWidth="1"/>
-    <rect x="170" y="236" width="60" height="8" rx="4" fill="rgba(37,99,235,0.2)" stroke="#2563eb" strokeWidth="1"/>
+    {/* Monitor frame */}
+    <rect x="90" y="52" width="220" height="158" rx="12" fill="rgba(4,14,30,0.95)" stroke="#2563eb" strokeWidth="1.5"/>
+    <rect x="102" y="64" width="196" height="134" rx="7" fill="rgba(37,99,235,0.13)"/>
 
-    {/* Hand gesture */}
-    <g transform="translate(280, 100)">
-      {/* Palm */}
-      <ellipse cx="30" cy="70" rx="22" ry="26" fill="rgba(37,99,235,0.15)" stroke="#3b82f6" strokeWidth="1.5"/>
-      {/* Fingers */}
-      <rect x="10" y="28" width="10" height="42" rx="5" fill="rgba(37,99,235,0.2)" stroke="#3b82f6" strokeWidth="1.5"/>
-      <rect x="23" y="18" width="10" height="52" rx="5" fill="rgba(37,99,235,0.25)" stroke="#3b82f6" strokeWidth="1.5"/>
-      <rect x="36" y="20" width="10" height="50" rx="5" fill="rgba(37,99,235,0.2)" stroke="#3b82f6" strokeWidth="1.5"/>
-      <rect x="49" y="26" width="10" height="44" rx="5" fill="rgba(37,99,235,0.15)" stroke="#3b82f6" strokeWidth="1.5"/>
-      {/* Thumb */}
-      <ellipse cx="4" cy="60" rx="7" ry="16" fill="rgba(37,99,235,0.15)" stroke="#3b82f6" strokeWidth="1.5" transform="rotate(-20, 4, 60)"/>
-    </g>
+    {/* Screen UI rows */}
+    <rect x="118" y="80" width="80" height="9" rx="4" fill="rgba(59,130,246,0.5)"/>
+    <rect x="118" y="97" width="130" height="7" rx="3" fill="rgba(255,255,255,0.09)"/>
+    <rect x="118" y="111" width="100" height="7" rx="3" fill="rgba(255,255,255,0.06)"/>
+    <rect x="118" y="125" width="115" height="7" rx="3" fill="rgba(255,255,255,0.05)"/>
 
-    {/* Gesture wave lines */}
-    {[0, 1, 2, 3].map(i => (
-      <path
-        key={i}
-        d={`M ${295 - i * 18} ${130 + i * 5} Q ${270 - i * 18} ${115 + i * 5} ${245 - i * 18} ${130 + i * 5}`}
-        stroke="#3b82f6"
-        strokeWidth={1.5 - i * 0.3}
-        fill="none"
-        opacity={1 - i * 0.2}
-        strokeDasharray="4 3"
-      />
-    ))}
+    {/* Crosshair tracker on screen */}
+    <circle cx="222" cy="158" r="18" fill="none" stroke="#3b82f6" strokeWidth="1.2" opacity="0.7"/>
+    <circle cx="222" cy="158" r="9" fill="rgba(37,99,235,0.2)" stroke="#3b82f6" strokeWidth="1"/>
+    <circle cx="222" cy="158" r="3" fill="#60a5fa"/>
+    <line x1="222" y1="134" x2="222" y2="143" stroke="#3b82f6" strokeWidth="1.4" strokeLinecap="round" opacity="0.8"/>
+    <line x1="222" y1="173" x2="222" y2="182" stroke="#3b82f6" strokeWidth="1.4" strokeLinecap="round" opacity="0.8"/>
+    <line x1="198" y1="158" x2="207" y2="158" stroke="#3b82f6" strokeWidth="1.4" strokeLinecap="round" opacity="0.8"/>
+    <line x1="237" y1="158" x2="246" y2="158" stroke="#3b82f6" strokeWidth="1.4" strokeLinecap="round" opacity="0.8"/>
 
-    {/* Connection dots */}
-    <circle cx="290" cy="120" r="4" fill="#3b82f6" opacity="0.8">
-      <animate attributeName="r" values="4;7;4" dur="2s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
+    {/* Monitor stand */}
+    <rect x="185" y="210" width="30" height="13" rx="4" fill="rgba(37,99,235,0.2)" stroke="#2563eb" strokeWidth="1"/>
+    <rect x="168" y="223" width="64" height="7" rx="3" fill="rgba(37,99,235,0.14)" stroke="#2563eb" strokeWidth="1"/>
+
+    {/* Pulsing detection rings - animate outward from tracker */}
+    <circle cx="222" cy="158" r="28" fill="none" stroke="#3b82f6" strokeWidth="1" opacity="0.5">
+      <animate attributeName="r" values="28;55;28" dur="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0;0.5" dur="2.4s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="230" cy="140" r="4" fill="#60a5fa" opacity="0.8">
-      <animate attributeName="r" values="4;7;4" dur="2.5s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2.5s" repeatCount="indefinite"/>
+    <circle cx="222" cy="158" r="42" fill="none" stroke="#3b82f6" strokeWidth="0.8" opacity="0.3">
+      <animate attributeName="r" values="42;70;42" dur="2.4s" repeatCount="indefinite" begin="0.6s"/>
+      <animate attributeName="opacity" values="0.3;0;0.3" dur="2.4s" repeatCount="indefinite" begin="0.6s"/>
     </circle>
 
-    {/* Scanning lines */}
-    <line x1="100" y1="130" x2="280" y2="130" stroke="#3b82f6" strokeWidth="0.5" strokeDasharray="5 10" opacity="0.3"/>
-    <line x1="100" y1="155" x2="280" y2="155" stroke="#3b82f6" strokeWidth="0.5" strokeDasharray="5 10" opacity="0.2"/>
+    {/* Gesture command nodes */}
+    <circle cx="44" cy="100" r="26" fill="rgba(37,99,235,0.1)" stroke="#3b82f6" strokeWidth="1.2"/>
+    <text x="44" y="97" textAnchor="middle" fill="#60a5fa" fontSize="8" fontFamily="Inter, sans-serif" fontWeight="700">SWIPE</text>
+    <text x="44" y="108" textAnchor="middle" fill="#93c5fd" fontSize="7" fontFamily="Inter, sans-serif">LEFT / RIGHT</text>
+    <path d="M 68 104 L 90 110" stroke="#3b82f6" strokeWidth="1" strokeDasharray="3 3" opacity="0.5"/>
 
-    {/* Labels */}
-    <rect x="30" y="90" width="70" height="22" rx="11" fill="rgba(37,99,235,0.15)" stroke="rgba(37,99,235,0.4)" strokeWidth="1"/>
-    <text x="65" y="105" textAnchor="middle" fill="#60a5fa" fontSize="9" fontFamily="Inter, sans-serif" fontWeight="600">GESTURE</text>
+    <circle cx="356" cy="100" r="26" fill="rgba(37,99,235,0.1)" stroke="#3b82f6" strokeWidth="1.2"/>
+    <text x="356" y="97" textAnchor="middle" fill="#60a5fa" fontSize="8" fontFamily="Inter, sans-serif" fontWeight="700">PINCH</text>
+    <text x="356" y="108" textAnchor="middle" fill="#93c5fd" fontSize="7" fontFamily="Inter, sans-serif">ZOOM IN/OUT</text>
+    <path d="M 332 104 L 310 110" stroke="#3b82f6" strokeWidth="1" strokeDasharray="3 3" opacity="0.5"/>
 
-    <rect x="30" y="150" width="70" height="22" rx="11" fill="rgba(6,182,212,0.1)" stroke="rgba(6,182,212,0.3)" strokeWidth="1"/>
-    <text x="65" y="165" textAnchor="middle" fill="#06b6d4" fontSize="9" fontFamily="Inter, sans-serif" fontWeight="600">TOUCHLESS</text>
+    <circle cx="44" cy="196" r="26" fill="rgba(6,182,212,0.08)" stroke="#06b6d4" strokeWidth="1.2"/>
+    <text x="44" y="193" textAnchor="middle" fill="#67e8f9" fontSize="8" fontFamily="Inter, sans-serif" fontWeight="700">HOLD</text>
+    <text x="44" y="204" textAnchor="middle" fill="#a5f3fc" fontSize="7" fontFamily="Inter, sans-serif">PRESS SELECT</text>
+    <path d="M 68 192 L 90 180" stroke="#06b6d4" strokeWidth="1" strokeDasharray="3 3" opacity="0.4"/>
+
+    <circle cx="356" cy="196" r="26" fill="rgba(37,99,235,0.1)" stroke="#3b82f6" strokeWidth="1.2"/>
+    <text x="356" y="193" textAnchor="middle" fill="#60a5fa" fontSize="8" fontFamily="Inter, sans-serif" fontWeight="700">SCROLL</text>
+    <text x="356" y="204" textAnchor="middle" fill="#93c5fd" fontSize="7" fontFamily="Inter, sans-serif">UP / DOWN</text>
+    <path d="M 332 192 L 310 180" stroke="#3b82f6" strokeWidth="1" strokeDasharray="3 3" opacity="0.5"/>
+
+    {/* Floating detection dot on monitor edge */}
+    <circle cx="310" cy="64" r="5" fill="#3b82f6" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;0.3;0.9" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+
+    {/* Label chips */}
+    <rect x="22" y="257" width="76" height="24" rx="12" fill="rgba(37,99,235,0.15)" stroke="rgba(37,99,235,0.4)" strokeWidth="1"/>
+    <text x="60" y="273" textAnchor="middle" fill="#60a5fa" fontSize="9" fontFamily="Inter, sans-serif" fontWeight="700">GESTURE</text>
+
+    <rect x="114" y="257" width="84" height="24" rx="12" fill="rgba(6,182,212,0.1)" stroke="rgba(6,182,212,0.3)" strokeWidth="1"/>
+    <text x="156" y="273" textAnchor="middle" fill="#06b6d4" fontSize="9" fontFamily="Inter, sans-serif" fontWeight="700">TOUCHLESS</text>
+
+    <rect x="214" y="257" width="80" height="24" rx="12" fill="rgba(37,99,235,0.1)" stroke="rgba(37,99,235,0.25)" strokeWidth="1"/>
+    <text x="254" y="273" textAnchor="middle" fill="#93c5fd" fontSize="9" fontFamily="Inter, sans-serif" fontWeight="700">VISION AI</text>
   </svg>
 )
+
+// Fixed braille patterns (col, row, filled) — deterministic, no Math.random()
+const BRAILLE_ROW1 = [
+  [[1,0,true],[1,1,false],[1,2,true],[0,0,true],[0,1,true],[0,2,false]],
+  [[1,0,false],[1,1,true],[1,2,true],[0,0,true],[0,1,false],[0,2,true]],
+  [[1,0,true],[1,1,true],[1,2,false],[0,0,false],[0,1,true],[0,2,true]],
+  [[1,0,true],[1,1,false],[1,2,false],[0,0,true],[0,1,true],[0,2,true]],
+]
+const BRAILLE_ROW2 = [
+  [[1,0,false],[1,1,true],[1,2,true],[0,0,true],[0,1,false],[0,2,true]],
+  [[1,0,true],[1,1,true],[1,2,false],[0,0,false],[0,1,true],[0,2,false]],
+  [[1,0,true],[1,1,false],[1,2,true],[0,0,true],[0,1,true],[0,2,false]],
+  [[1,0,false],[1,1,true],[1,2,false],[0,0,true],[0,1,false],[0,2,true]],
+]
 
 const BrailleIllustration = () => (
   <svg width="100%" height="100%" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <radialGradient id="glow3" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.25"/>
-        <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0"/>
+        <stop offset="0%" stopColor="#2563eb" stopOpacity="0.22"/>
+        <stop offset="100%" stopColor="#2563eb" stopOpacity="0"/>
       </radialGradient>
     </defs>
 
     {/* Background glow */}
-    <circle cx="200" cy="160" r="140" fill="url(#glow3)"/>
+    <circle cx="200" cy="155" r="130" fill="url(#glow3)"/>
 
-    {/* Book / Screen */}
-    <rect x="60" y="60" width="160" height="200" rx="12" fill="rgba(13,13,43,0.9)" stroke="#7c3aed" strokeWidth="1.5"/>
-    <rect x="70" y="75" width="140" height="170" rx="8" fill="rgba(109,40,217,0.08)"/>
+    {/* Book panel */}
+    <rect x="28" y="48" width="168" height="214" rx="12" fill="rgba(13,13,43,0.9)" stroke="#2563eb" strokeWidth="1.5"/>
+    <rect x="40" y="62" width="144" height="186" rx="7" fill="rgba(37,99,235,0.15)"/>
 
-    {/* Braille dots on page - 4 cells, 3x2 each */}
-    {[0, 1, 2, 3].map(cell => (
-      <g key={cell} transform={`translate(${85 + cell * 32}, 90)`}>
-        {[0, 1].map(col => (
-          [0, 1, 2].map(row => {
-            const filled = Math.random() > 0.4
-            return (
-              <circle
-                key={`${col}-${row}`}
-                cx={col * 12}
-                cy={row * 14}
-                r="4"
-                fill={filled ? '#a78bfa' : 'rgba(167,139,250,0.15)'}
-                stroke="#7c3aed"
-                strokeWidth="0.5"
-              />
-            )
-          })
+    {/* Section label inside book */}
+    <rect x="52" y="72" width="58" height="16" rx="8" fill="rgba(37,99,235,0.2)" stroke="rgba(37,99,235,0.4)" strokeWidth="0.8"/>
+    <text x="81" y="83" textAnchor="middle" fill="#60a5fa" fontSize="8" fontFamily="Inter, sans-serif" fontWeight="700">BRAILLE</text>
+
+    {/* Braille row 1 — y starts at 100, plenty of gap from label */}
+    {BRAILLE_ROW1.map((dots, cell) => (
+      <g key={cell} transform={`translate(${52 + cell * 34}, 100)`}>
+        {dots.map(([col, row, filled]) => (
+          <circle
+            key={`${col}-${row}`}
+            cx={col * 13}
+            cy={row * 14}
+            r="4.5"
+            fill={filled ? '#60a5fa' : 'rgba(96,165,250,0.14)'}
+            stroke={filled ? '#3b82f6' : 'rgba(37,99,235,0.3)'}
+            strokeWidth="0.8"
+          />
         ))}
       </g>
     ))}
 
-    {/* Second row of Braille */}
-    {[0, 1, 2, 3].map(cell => (
-      <g key={cell} transform={`translate(${85 + cell * 32}, 148)`}>
-        {[0, 1].map(col => (
-          [0, 1, 2].map(row => {
-            const filled = Math.random() > 0.5
-            return (
-              <circle
-                key={`${col}-${row}`}
-                cx={col * 12}
-                cy={row * 14}
-                r="4"
-                fill={filled ? '#c4b5fd' : 'rgba(167,139,250,0.12)'}
-                stroke="#7c3aed"
-                strokeWidth="0.5"
-              />
-            )
-          })
+    {/* Thin separator between braille rows */}
+    <line x1="50" y1="148" x2="180" y2="148" stroke="rgba(37,99,235,0.15)" strokeWidth="0.8"/>
+
+    {/* Braille row 2 — starts at 158, gap after separator */}
+    {BRAILLE_ROW2.map((dots, cell) => (
+      <g key={cell} transform={`translate(${52 + cell * 34}, 158)`}>
+        {dots.map(([col, row, filled]) => (
+          <circle
+            key={`${col}-${row}`}
+            cx={col * 13}
+            cy={row * 14}
+            r="4.5"
+            fill={filled ? '#93c5fd' : 'rgba(96,165,250,0.1)'}
+            stroke={filled ? '#2563eb' : 'rgba(37,99,235,0.25)'}
+            strokeWidth="0.8"
+          />
         ))}
       </g>
     ))}
 
-    {/* Progress bar on book */}
-    <rect x="80" y="210" width="130" height="6" rx="3" fill="rgba(255,255,255,0.05)"/>
-    <rect x="80" y="210" width="85" height="6" rx="3" fill="rgba(139,92,246,0.6)"/>
-    <text x="140" y="228" textAnchor="middle" fill="#a78bfa" fontSize="9" fontFamily="Inter, sans-serif">65% complete</text>
+    {/* Progress bar — safely below braille row 2 (ends ~158+28=186) */}
+    <rect x="50" y="210" width="130" height="6" rx="3" fill="rgba(255,255,255,0.05)"/>
+    <rect x="50" y="210" width="85"  height="6" rx="3" fill="rgba(37,99,235,0.6)"/>
+    {/* Text label for progress — on its own line below the bar */}
+    <text x="115" y="230" textAnchor="middle" fill="#60a5fa" fontSize="9" fontFamily="Inter, sans-serif">65% complete</text>
 
-    {/* AI Brain */}
-    <g transform="translate(268, 80)">
-      {/* Brain shape */}
-      <circle cx="36" cy="36" r="32" fill="rgba(139,92,246,0.12)" stroke="#7c3aed" strokeWidth="1.5"/>
-      {/* Neural connections */}
-      <circle cx="20" cy="28" r="4" fill="#8b5cf6"/>
-      <circle cx="36" cy="18" r="4" fill="#a78bfa"/>
-      <circle cx="52" cy="28" r="4" fill="#8b5cf6"/>
-      <circle cx="52" cy="46" r="4" fill="#a78bfa"/>
-      <circle cx="36" cy="54" r="4" fill="#8b5cf6"/>
-      <circle cx="20" cy="46" r="4" fill="#a78bfa"/>
-      <circle cx="36" cy="36" r="6" fill="#7c3aed"/>
-      {/* Lines */}
-      <line x1="20" y1="28" x2="36" y2="18" stroke="#8b5cf6" strokeWidth="1" opacity="0.6"/>
-      <line x1="36" y1="18" x2="52" y2="28" stroke="#8b5cf6" strokeWidth="1" opacity="0.6"/>
-      <line x1="52" y1="28" x2="52" y2="46" stroke="#8b5cf6" strokeWidth="1" opacity="0.6"/>
-      <line x1="52" y1="46" x2="36" y2="54" stroke="#8b5cf6" strokeWidth="1" opacity="0.6"/>
-      <line x1="36" y1="54" x2="20" y2="46" stroke="#8b5cf6" strokeWidth="1" opacity="0.6"/>
-      <line x1="20" y1="46" x2="20" y2="28" stroke="#8b5cf6" strokeWidth="1" opacity="0.6"/>
-      <line x1="20" y1="28" x2="36" y2="36" stroke="#7c3aed" strokeWidth="1" opacity="0.4"/>
-      <line x1="36" y1="18" x2="36" y2="36" stroke="#7c3aed" strokeWidth="1" opacity="0.4"/>
-      <line x1="52" y1="28" x2="36" y2="36" stroke="#7c3aed" strokeWidth="1" opacity="0.4"/>
-      <line x1="52" y1="46" x2="36" y2="36" stroke="#7c3aed" strokeWidth="1" opacity="0.4"/>
-      <line x1="36" y1="54" x2="36" y2="36" stroke="#7c3aed" strokeWidth="1" opacity="0.4"/>
-      <line x1="20" y1="46" x2="36" y2="36" stroke="#7c3aed" strokeWidth="1" opacity="0.4"/>
+    {/* AI Brain — top right, well clear of book */}
+    <g transform="translate(258, 56)">
+      <circle cx="40" cy="40" r="36" fill="rgba(37,99,235,0.1)" stroke="#2563eb" strokeWidth="1.5"/>
+      <circle cx="24" cy="30" r="4" fill="#3b82f6"/>
+      <circle cx="40" cy="18" r="4" fill="#60a5fa"/>
+      <circle cx="56" cy="30" r="4" fill="#3b82f6"/>
+      <circle cx="56" cy="50" r="4" fill="#60a5fa"/>
+      <circle cx="40" cy="62" r="4" fill="#3b82f6"/>
+      <circle cx="24" cy="50" r="4" fill="#60a5fa"/>
+      <circle cx="40" cy="40" r="7" fill="#2563eb"/>
+      <line x1="24" y1="30" x2="40" y2="18" stroke="#3b82f6" strokeWidth="1" opacity="0.55"/>
+      <line x1="40" y1="18" x2="56" y2="30" stroke="#3b82f6" strokeWidth="1" opacity="0.55"/>
+      <line x1="56" y1="30" x2="56" y2="50" stroke="#3b82f6" strokeWidth="1" opacity="0.55"/>
+      <line x1="56" y1="50" x2="40" y2="62" stroke="#3b82f6" strokeWidth="1" opacity="0.55"/>
+      <line x1="40" y1="62" x2="24" y2="50" stroke="#3b82f6" strokeWidth="1" opacity="0.55"/>
+      <line x1="24" y1="50" x2="24" y2="30" stroke="#3b82f6" strokeWidth="1" opacity="0.55"/>
+      <line x1="24" y1="30" x2="40" y2="40" stroke="#2563eb" strokeWidth="1" opacity="0.35"/>
+      <line x1="40" y1="18" x2="40" y2="40" stroke="#2563eb" strokeWidth="1" opacity="0.35"/>
+      <line x1="56" y1="30" x2="40" y2="40" stroke="#2563eb" strokeWidth="1" opacity="0.35"/>
+      <line x1="56" y1="50" x2="40" y2="40" stroke="#2563eb" strokeWidth="1" opacity="0.35"/>
+      <line x1="40" y1="62" x2="40" y2="40" stroke="#2563eb" strokeWidth="1" opacity="0.35"/>
+      <line x1="24" y1="50" x2="40" y2="40" stroke="#2563eb" strokeWidth="1" opacity="0.35"/>
     </g>
 
-    {/* Connecting lines from brain to book */}
-    <path d="M 268 130 Q 230 130 220 155" stroke="#7c3aed" strokeWidth="1.5" strokeDasharray="4 4" fill="none" opacity="0.5"/>
-    <path d="M 268 150 Q 240 165 220 175" stroke="#a78bfa" strokeWidth="1" strokeDasharray="3 5" fill="none" opacity="0.4"/>
-
-    {/* Floating feedback chips */}
-    <rect x="260" y="200" width="110" height="28" rx="14" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.35)" strokeWidth="1"/>
-    <circle cx="277" cy="214" r="5" fill="#7c3aed"/>
-    <text x="310" y="218" textAnchor="middle" fill="#a78bfa" fontSize="9" fontFamily="Inter, sans-serif" fontWeight="600">Adaptive AI</text>
-
-    <rect x="260" y="240" width="110" height="28" rx="14" fill="rgba(6,182,212,0.1)" stroke="rgba(6,182,212,0.3)" strokeWidth="1"/>
-    <circle cx="277" cy="254" r="5" fill="#0891b2"/>
-    <text x="310" y="258" textAnchor="middle" fill="#06b6d4" fontSize="9" fontFamily="Inter, sans-serif" fontWeight="600">Live Feedback</text>
-
-    {/* Pulsing dot on brain */}
-    <circle cx="304" cy="116" r="5" fill="#8b5cf6" opacity="0.8">
+    {/* Pulsing dot on brain edge — not near any text */}
+    <circle cx="298" cy="100" r="5" fill="#3b82f6" opacity="0.85">
       <animate attributeName="r" values="5;9;5" dur="2s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.85;0.2;0.85" dur="2s" repeatCount="indefinite"/>
     </circle>
+
+    {/* Dashed connector lines from brain to book */}
+    <path d="M 258 118 Q 228 118 196 135" stroke="#2563eb" strokeWidth="1.5" strokeDasharray="4 4" fill="none" opacity="0.45"/>
+    <path d="M 258 138 Q 234 155 196 160" stroke="#60a5fa" strokeWidth="1"   strokeDasharray="3 5" fill="none" opacity="0.35"/>
+
+    {/* Feedback chips — right column, below brain, with enough vertical space */}
+    <rect x="252" y="168" width="118" height="28" rx="14" fill="rgba(37,99,235,0.14)" stroke="rgba(37,99,235,0.35)" strokeWidth="1"/>
+    <circle cx="270" cy="182" r="5" fill="#2563eb"/>
+    <text x="317" y="186" textAnchor="middle" fill="#60a5fa" fontSize="9" fontFamily="Inter, sans-serif" fontWeight="600">Adaptive AI</text>
+
+    <rect x="252" y="208" width="118" height="28" rx="14" fill="rgba(37,99,235,0.09)" stroke="rgba(37,99,235,0.28)" strokeWidth="1"/>
+    <circle cx="270" cy="222" r="5" fill="#1d4ed8"/>
+    <text x="317" y="226" textAnchor="middle" fill="#93c5fd" fontSize="9" fontFamily="Inter, sans-serif" fontWeight="600">Live Feedback</text>
+
+    <rect x="252" y="248" width="118" height="28" rx="14" fill="rgba(6,182,212,0.07)" stroke="rgba(6,182,212,0.25)" strokeWidth="1"/>
+    <circle cx="270" cy="262" r="5" fill="#0891b2"/>
+    <text x="317" y="266" textAnchor="middle" fill="#67e8f9" fontSize="9" fontFamily="Inter, sans-serif" fontWeight="600">Real-time Sync</text>
   </svg>
 )
 
@@ -276,20 +289,37 @@ function ProductSection({ product, reverse }) {
 
         {/* Content */}
         <div style={{ direction: 'ltr' }}>
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            background: `rgba(${product.glowRgb}, 0.1)`,
-            border: `1px solid rgba(${product.glowRgb}, 0.3)`,
-            borderRadius: '100px',
-            padding: '6px 14px',
-            marginBottom: '20px',
-          }}>
-            <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: product.color, animation: 'pulse-glow 2s infinite' }} />
-            <span style={{ fontSize: '11px', fontWeight: '700', color: product.color, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-              {product.badge}
-            </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px', flexWrap: 'wrap' }}>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              background: `rgba(${product.glowRgb}, 0.1)`,
+              border: `1px solid rgba(${product.glowRgb}, 0.3)`,
+              borderRadius: '100px',
+              padding: '6px 14px',
+            }}>
+              <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: product.color, animation: 'pulse-glow 2s infinite' }} />
+              <span style={{ fontSize: '11px', fontWeight: '700', color: product.color, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                {product.badge}
+              </span>
+            </div>
+            {product.inDevelopment && (
+              <div style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                background: 'rgba(234,179,8,0.08)',
+                border: '1px solid rgba(234,179,8,0.28)',
+                borderRadius: '100px',
+                padding: '6px 12px',
+              }}>
+                <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#eab308' }} />
+                <span style={{ fontSize: '11px', fontWeight: '700', color: '#eab308', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                  {product.inDevelopmentLabel}
+                </span>
+              </div>
+            )}
           </div>
 
           <h2 style={{
@@ -315,7 +345,7 @@ function ProductSection({ product, reverse }) {
           {/* Features */}
           <div style={{ marginBottom: '36px' }}>
             <p style={{ fontSize: '12px', fontWeight: '700', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px' }}>
-              Key Features
+              {product.keyFeatures}
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
               {product.features.map((feature, i) => (
@@ -374,7 +404,7 @@ function ProductSection({ product, reverse }) {
             onMouseEnter={e => { e.currentTarget.style.opacity = '0.9'; e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = `0 8px 30px rgba(${product.glowRgb}, 0.5)`; }}
             onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = `0 4px 20px rgba(${product.glowRgb}, 0.35)`; }}
           >
-            Get in Touch <ArrowRight />
+            {product.getInTouch} <ArrowRight />
           </Link>
         </div>
       </div>
@@ -388,7 +418,7 @@ export default function Products() {
 
   return (
     <div style={{
-      background: 'linear-gradient(180deg, #05050f 0%, #0a0a1a 30%, #0d0d2b 60%, #0a0a1a 100%)',
+      background: 'linear-gradient(180deg, #040e1e 0%, #071629 30%, #0a1c38 60%, #071629 100%)',
       minHeight: '100vh',
       paddingTop: '88px',
     }}>
@@ -452,10 +482,14 @@ export default function Products() {
           badge: tr.products.touchlessBadge,
           description: tr.products.touchlessDesc,
           features: tr.products.touchlessFeatures,
+          keyFeatures: tr.products.keyFeatures,
+          getInTouch: tr.products.getInTouch,
           illustration: <TouchlessIllustration />,
           color: '#3b82f6',
           glowColor: '#3b82f6',
           glowRgb: '59,130,246',
+          inDevelopment: true,
+          inDevelopmentLabel: tr.products.touchlessInDev,
         }}
         reverse={false}
       />
@@ -466,23 +500,90 @@ export default function Products() {
         margin: '0 auto',
         padding: '0 24px',
       }}>
-        <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(139,92,246,0.3), transparent)' }} />
+        <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(37,99,235,0.3), transparent)' }} />
       </div>
 
-      {/* Braille Product */}
+      {/* DotSense Product */}
       <ProductSection
         product={{
-          title: tr.products.brailleTitle,
-          badge: tr.products.brailleBadge,
-          description: tr.products.brailleDesc,
-          features: tr.products.brailleFeatures,
+          title: tr.products.dotSenseTitle,
+          badge: tr.products.dotSenseBadge,
+          description: tr.products.dotSenseDesc,
+          features: tr.products.dotSenseFeatures,
+          keyFeatures: tr.products.keyFeatures,
+          getInTouch: tr.products.getInTouch,
           illustration: <BrailleIllustration />,
-          color: '#8b5cf6',
-          glowColor: '#8b5cf6',
-          glowRgb: '139,92,246',
+          color: '#2563eb',
+          glowColor: '#2563eb',
+          glowRgb: '37,99,235',
+          inDevelopment: true,
+          inDevelopmentLabel: tr.products.touchlessInDev,
         }}
         reverse={true}
       />
+
+      {/* CTA Section */}
+      <section style={{
+        padding: '80px 0 100px',
+        background: 'linear-gradient(180deg, #040e1e 0%, #061524 100%)',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        <div style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%,-50%)',
+          width: '700px',
+          height: '400px',
+          background: 'radial-gradient(ellipse, rgba(37,99,235,0.1) 0%, transparent 65%)',
+          borderRadius: '50%',
+          pointerEvents: 'none',
+        }} />
+        <div style={{ maxWidth: '720px', margin: '0 auto', padding: '0 24px', position: 'relative', zIndex: 1, textAlign: 'center' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '24px' }}>
+            <div style={{ width: '40px', height: '1px', background: 'linear-gradient(90deg, transparent, #3b82f6)' }} />
+            <span style={{ fontSize: '11px', fontWeight: '700', color: '#3b82f6', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+              {tr.products.getInTouch}
+            </span>
+            <div style={{ width: '40px', height: '1px', background: 'linear-gradient(90deg, #3b82f6, transparent)' }} />
+          </div>
+          <h2 style={{
+            fontSize: 'clamp(26px, 4vw, 40px)',
+            fontWeight: '800',
+            color: 'white',
+            letterSpacing: '-0.02em',
+            lineHeight: 1.2,
+            marginBottom: '16px',
+          }}>
+            {tr.products.ctaTitle}
+          </h2>
+          <p style={{ color: '#9ca3af', fontSize: '16px', lineHeight: 1.75, marginBottom: '36px', maxWidth: '480px', margin: '0 auto 36px' }}>
+            {tr.products.ctaSub}
+          </p>
+          <Link
+            to="/contact"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              background: '#2563eb',
+              color: 'white',
+              textDecoration: 'none',
+              borderRadius: '10px',
+              padding: '14px 32px',
+              fontWeight: '600',
+              fontSize: '15px',
+              transition: 'all 0.2s ease',
+              boxShadow: '0 4px 24px rgba(37,99,235,0.4)',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = '#1d4ed8'; e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(37,99,235,0.55)'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = '#2563eb'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(37,99,235,0.4)'; }}
+          >
+            {tr.products.ctaButton} <ArrowRight />
+          </Link>
+        </div>
+      </section>
 
       <style>{`
         @media (max-width: 768px) {
