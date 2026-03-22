@@ -41,24 +41,21 @@ const TouchlessIcon = () => (
   </svg>
 )
 
-const BrailleKitIcon = () => (
+const NotebookIcon = () => (
   <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
     <rect width="64" height="64" rx="16" fill="rgba(5,150,105,0.15)" />
-    {/* Book shape */}
-    <rect x="12" y="14" width="40" height="36" rx="4" fill="none" stroke="#059669" strokeWidth="2.5" />
-    <line x1="32" y1="14" x2="32" y2="50" stroke="#34d399" strokeWidth="1.5" strokeDasharray="3 2" />
-    {/* Small dots on left page */}
-    <circle cx="20" cy="24" r="2.5" fill="#059669" />
-    <circle cx="26" cy="24" r="2.5" fill="#34d399" />
-    <circle cx="20" cy="32" r="2.5" fill="#34d399" />
-    <circle cx="26" cy="32" r="2.5" fill="#059669" />
-    <circle cx="20" cy="40" r="2.5" fill="#059669" />
-    <circle cx="26" cy="40" r="1.5" fill="rgba(52,211,153,0.4)" />
-    {/* Lines on right page */}
-    <line x1="38" y1="24" x2="48" y2="24" stroke="#34d399" strokeWidth="1.5" strokeLinecap="round" />
-    <line x1="38" y1="30" x2="48" y2="30" stroke="#059669" strokeWidth="1.5" strokeLinecap="round" />
-    <line x1="38" y1="36" x2="44" y2="36" stroke="#34d399" strokeWidth="1.5" strokeLinecap="round" />
-    <line x1="38" y1="42" x2="46" y2="42" stroke="#059669" strokeWidth="1.5" strokeLinecap="round" />
+    {/* Notebook body */}
+    <rect x="18" y="10" width="34" height="44" rx="3" fill="none" stroke="#059669" strokeWidth="2.5" />
+    {/* Spiral binding circles */}
+    <circle cx="18" cy="19" r="2.5" fill="none" stroke="#34d399" strokeWidth="1.5" />
+    <circle cx="18" cy="27" r="2.5" fill="none" stroke="#34d399" strokeWidth="1.5" />
+    <circle cx="18" cy="35" r="2.5" fill="none" stroke="#34d399" strokeWidth="1.5" />
+    <circle cx="18" cy="43" r="2.5" fill="none" stroke="#34d399" strokeWidth="1.5" />
+    {/* Lines on page */}
+    <line x1="24" y1="22" x2="46" y2="22" stroke="#34d399" strokeWidth="1.5" strokeLinecap="round" />
+    <line x1="24" y1="29" x2="46" y2="29" stroke="#059669" strokeWidth="1.5" strokeLinecap="round" />
+    <line x1="24" y1="36" x2="40" y2="36" stroke="#34d399" strokeWidth="1.5" strokeLinecap="round" />
+    <line x1="24" y1="43" x2="44" y2="43" stroke="#059669" strokeWidth="1.5" strokeLinecap="round" />
   </svg>
 )
 
@@ -80,56 +77,51 @@ const HoodieIcon = () => (
   </svg>
 )
 
-const TshirtIcon = () => (
+const CupIcon = () => (
   <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
     <rect width="64" height="64" rx="16" fill="rgba(5,150,105,0.15)" />
-    {/* T-shirt silhouette */}
-    <path
-      d="M12 20 L22 14 Q27 12 32 14 Q37 12 42 14 L52 20 L46 28 L44 26 L44 52 L20 52 L20 26 L18 28 Z"
-      fill="none"
-      stroke="#059669"
-      strokeWidth="2.5"
-      strokeLinejoin="round"
-    />
-    {/* Collar */}
-    <path d="M26 14 Q32 22 38 14" fill="none" stroke="#34d399" strokeWidth="2" strokeLinecap="round" />
-    {/* Small logo mark in center */}
-    <circle cx="32" cy="36" r="4" fill="none" stroke="#34d399" strokeWidth="1.5" />
-    <text x="32" y="40" textAnchor="middle" fontSize="6" fill="#34d399" fontWeight="bold">A</text>
+    {/* Mug body */}
+    <path d="M14 24 L14 50 Q14 54 18 54 L42 54 Q46 54 46 50 L46 24 Z" fill="none" stroke="#059669" strokeWidth="2.5" strokeLinejoin="round" />
+    {/* Handle */}
+    <path d="M46 30 Q56 30 56 38 Q56 46 46 46" fill="none" stroke="#059669" strokeWidth="2.5" strokeLinecap="round" />
+    {/* Steam */}
+    <path d="M22 18 Q24 13 22 8" fill="none" stroke="#34d399" strokeWidth="2" strokeLinecap="round" />
+    <path d="M30 18 Q32 13 30 8" fill="none" stroke="#34d399" strokeWidth="2" strokeLinecap="round" />
+    <path d="M38 18 Q40 13 38 8" fill="none" stroke="#34d399" strokeWidth="2" strokeLinecap="round" />
   </svg>
 )
 
-const ToteIcon = () => (
+const PinButtonIcon = () => (
   <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
     <rect width="64" height="64" rx="16" fill="rgba(5,150,105,0.15)" />
-    {/* Bag body */}
-    <rect x="14" y="24" width="36" height="30" rx="4" fill="none" stroke="#059669" strokeWidth="2.5" />
-    {/* Handles */}
-    <path d="M22 24 Q22 14 28 14 Q34 14 34 24" fill="none" stroke="#34d399" strokeWidth="2.5" strokeLinecap="round" />
-    <path d="M30 24 Q30 14 36 14 Q42 14 42 24" fill="none" stroke="#34d399" strokeWidth="2.5" strokeLinecap="round" />
-    {/* Interior pocket line */}
-    <line x1="22" y1="38" x2="42" y2="38" stroke="#34d399" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="3 2" />
-    {/* Logo mark */}
-    <circle cx="32" cy="48" r="3" fill="rgba(52,211,153,0.5)" />
+    {/* Button circle */}
+    <circle cx="32" cy="30" r="20" fill="rgba(5,150,105,0.12)" stroke="#059669" strokeWidth="2.5" />
+    <circle cx="32" cy="30" r="15" fill="none" stroke="#34d399" strokeWidth="1" strokeDasharray="3 2" />
+    {/* AbleTo "A" logo */}
+    <path d="M26 40 L32 20 L38 40" fill="none" stroke="#34d399" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    <line x1="28" y1="34" x2="36" y2="34" stroke="#34d399" strokeWidth="2" strokeLinecap="round" />
+    {/* Pin clasp */}
+    <line x1="24" y1="54" x2="40" y2="54" stroke="#059669" strokeWidth="2" strokeLinecap="round" />
+    <circle cx="24" cy="54" r="2" fill="#34d399" />
+    <circle cx="40" cy="54" r="2" fill="#34d399" />
   </svg>
 )
 
 // ─── Product Data ─────────────────────────────────────────────────────────────
 
 const PRODUCTS = [
-  { id: 'dotsense-preorder', price: 149, category: 'preorder', badgeColor: '#2563eb', Icon: DotSenseIcon },
-  { id: 'touchless-beta',    price: 49,  category: 'preorder', badgeColor: '#7c3aed', Icon: TouchlessIcon },
-  { id: 'braille-kit',       price: 39,  category: 'accessories', badgeColor: '#059669', Icon: BrailleKitIcon },
-  { id: 'hoodie',            price: 45,  category: 'merch', badgeColor: '#059669', Icon: HoodieIcon },
-  { id: 'tshirt',            price: 25,  category: 'merch', badgeColor: '#059669', Icon: TshirtIcon },
-  { id: 'tote',              price: 15,  category: 'merch', badgeColor: '#059669', Icon: ToteIcon },
+  { id: 'dotsense-preorder', price: 60,   category: 'preorder', badgeColor: '#2563eb', Icon: DotSenseIcon },
+  { id: 'touchless-beta',    price: 50,   category: 'preorder', badgeColor: '#7c3aed', Icon: TouchlessIcon },
+  { id: 'hoodie',            price: 65,   category: 'merch',    badgeColor: '#059669', Icon: HoodieIcon },
+  { id: 'notebook',          price: 20,   category: 'merch',    badgeColor: '#059669', Icon: NotebookIcon },
+  { id: 'cup',               price: 25,   category: 'merch',    badgeColor: '#059669', Icon: CupIcon },
+  { id: 'pin-button',        price: 4.99, category: 'merch',    badgeColor: '#059669', Icon: PinButtonIcon },
 ]
 
 const FILTER_CATEGORIES = [
-  { key: 'all',        labelKey: 'filterAll' },
-  { key: 'preorder',   labelKey: 'filterPreOrder' },
-  { key: 'accessories', labelKey: 'filterAccessories' },
-  { key: 'merch',      labelKey: 'filterMerch' },
+  { key: 'all',      labelKey: 'filterAll' },
+  { key: 'preorder', labelKey: 'filterPreOrder' },
+  { key: 'merch',    labelKey: 'filterMerch' },
 ]
 
 const formatPrice = (amount) =>

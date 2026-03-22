@@ -261,8 +261,8 @@ export const t = {
         'dotsense-preorder': {
           name: 'DotSense — Early Access',
           badge: 'Pre-Order',
-          desc: 'Reserve your DotSense AI Braille learning device at early-access pricing. Ships Q4 2026.',
-          features: ['Adaptive AI learning algorithms', 'Real-time tactile feedback', 'Grade 1 & 2 Braille support', 'Progress tracking dashboard'],
+          desc: 'Reserve your DotSense AI Braille learning device at early-access pricing. Includes a Braille Starter Kit. Ships Q4 2026.',
+          features: ['Adaptive AI learning algorithms', 'Real-time tactile feedback', 'Grade 1 & 2 Braille support', 'Progress tracking dashboard', 'Includes Braille Starter Kit'],
         },
         'touchless-beta': {
           name: 'Touchless — Beta Access',
@@ -270,29 +270,29 @@ export const t = {
           desc: 'Join the Touchless closed beta and be first to experience hands-free device control through gesture recognition.',
           features: ['Priority beta access', 'Real-time gesture recognition', 'Dedicated support channel', 'Direct feedback program'],
         },
-        'braille-kit': {
-          name: 'Braille Starter Kit',
-          badge: 'Ships Now',
-          desc: 'A curated physical kit to start learning Braille. Tactile cards, workbook, and quick-reference guide included.',
-          features: ['Tactile alphabet cards (Grade 1)', 'Practice workbook', 'Quick-reference guide', 'Durable carrying case'],
-        },
         'hoodie': {
           name: 'AbleTo Hoodie',
           badge: 'Ships Now',
           desc: 'Premium heavyweight hoodie featuring the AbleTo logo. Navy, Black, or Charcoal. Ships in 5–7 business days.',
           features: ['400 GSM heavyweight cotton', 'Unisex oversized fit', 'Embroidered AbleTo logo', 'Sizes S – 3XL'],
         },
-        'tshirt': {
-          name: 'AbleTo T-Shirt',
+        'notebook': {
+          name: 'AbleTo Notebook',
           badge: 'Ships Now',
-          desc: 'Soft organic cotton t-shirt with the AbleTo wordmark. Multiple colors available. Ships in 5–7 business days.',
-          features: ['100% organic cotton', 'Unisex regular fit', 'Screen-printed logo', 'Sizes S – 2XL'],
+          desc: 'Spiral-bound notebook featuring the AbleTo logo. Great for notes, ideas, and brainstorming on the go.',
+          features: ['80 lined pages', 'Lay-flat spiral binding', 'Durable soft cover', 'AbleTo logo design'],
         },
-        'tote': {
-          name: 'AbleTo Tote Bag',
+        'cup': {
+          name: 'AbleTo Mug',
           badge: 'Ships Now',
-          desc: 'Heavy-duty canvas tote with the AbleTo logo. Roomy interior pocket and reinforced handles.',
-          features: ['14 oz canvas', 'Reinforced handles', 'Interior zip pocket', 'AbleTo wordmark print'],
+          desc: 'Ceramic coffee mug with the AbleTo logo. Start every morning with purpose.',
+          features: ['11 oz ceramic', 'Dishwasher safe', 'Microwave safe', 'AbleTo wordmark print'],
+        },
+        'pin-button': {
+          name: 'AbleTo Pin-Back Button',
+          badge: 'Ships Now',
+          desc: 'Classic 1.5" pin-back button with the AbleTo logo. Show your support wherever you go.',
+          features: ['1.5" diameter', 'Durable pin-back clasp', 'Full-color print', 'AbleTo logo design'],
         },
       },
     },
@@ -553,8 +553,8 @@ export const t = {
         'dotsense-preorder': {
           name: 'DotSense — Acceso Anticipado',
           badge: 'Pre-Orden',
-          desc: 'Reserva tu dispositivo DotSense de aprendizaje Braille con IA a precio de acceso anticipado. Envíos en Q4 2026.',
-          features: ['Algoritmos de aprendizaje adaptativo', 'Retroalimentación táctil en tiempo real', 'Braille Grado 1 y 2', 'Panel de seguimiento de progreso'],
+          desc: 'Reserva tu dispositivo DotSense de aprendizaje Braille con IA a precio de acceso anticipado. Incluye un Kit Inicial de Braille. Envíos en Q4 2026.',
+          features: ['Algoritmos de aprendizaje adaptativo', 'Retroalimentación táctil en tiempo real', 'Braille Grado 1 y 2', 'Panel de seguimiento de progreso', 'Incluye Kit Inicial de Braille'],
         },
         'touchless-beta': {
           name: 'Touchless — Acceso Beta',
@@ -562,29 +562,29 @@ export const t = {
           desc: 'Únete a la beta cerrada de Touchless y sé de los primeros en usar el control de dispositivos sin contacto mediante gestos.',
           features: ['Acceso beta prioritario', 'Reconocimiento gestual en tiempo real', 'Canal de soporte dedicado', 'Programa de retroalimentación directa'],
         },
-        'braille-kit': {
-          name: 'Kit Inicial de Braille',
-          badge: 'Disponible Ya',
-          desc: 'Un kit físico completo para empezar a aprender Braille. Incluye tarjetas táctiles, cuaderno y guía rápida.',
-          features: ['Tarjetas táctiles del alfabeto (Grado 1)', 'Cuaderno de práctica', 'Guía de referencia rápida', 'Estuche resistente'],
-        },
         'hoodie': {
           name: 'Hoodie AbleTo',
           badge: 'Disponible Ya',
           desc: 'Hoodie premium de algodón pesado con el logo de AbleTo. Azul marino, negro o carbón. Envío en 5–7 días hábiles.',
           features: ['Algodón 400 GSM peso pesado', 'Corte unisex oversized', 'Logo AbleTo bordado', 'Tallas S – 3XL'],
         },
-        'tshirt': {
-          name: 'Camiseta AbleTo',
+        'notebook': {
+          name: 'Cuaderno AbleTo',
           badge: 'Disponible Ya',
-          desc: 'Camiseta de algodón orgánico suave con el logo de AbleTo. Varios colores disponibles. Envío en 5–7 días hábiles.',
-          features: ['100% algodón orgánico', 'Corte unisex regular', 'Logo serigrafíado', 'Tallas S – 2XL'],
+          desc: 'Cuaderno de espiral con el logo de AbleTo. Ideal para notas, ideas y apuntes en cualquier momento.',
+          features: ['80 páginas rayadas', 'Encuadernado de espiral plano', 'Tapa blanda resistente', 'Diseño con logo AbleTo'],
         },
-        'tote': {
-          name: 'Tote Bag AbleTo',
+        'cup': {
+          name: 'Taza AbleTo',
           badge: 'Disponible Ya',
-          desc: 'Bolsa de lona resistente con el logo de AbleTo. Interior espacioso con bolsillo y asas reforzadas.',
-          features: ['Lona de 14 oz', 'Asas reforzadas', 'Bolsillo interior con cremallera', 'Estampado del logo AbleTo'],
+          desc: 'Taza de cerámica con el logo de AbleTo. Empieza cada mañana con propósito.',
+          features: ['Cerámica de 11 oz', 'Apta para lavavajillas', 'Apta para microondas', 'Estampado del logo AbleTo'],
+        },
+        'pin-button': {
+          name: 'Pin AbleTo',
+          badge: 'Disponible Ya',
+          desc: 'Pin clásico de 1.5" con el logo de AbleTo. Muestra tu apoyo dondequiera que vayas.',
+          features: ['Diámetro de 1.5"', 'Cierre de pin resistente', 'Impresión a todo color', 'Diseño con logo AbleTo'],
         },
       },
     },
