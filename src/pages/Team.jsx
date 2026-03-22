@@ -5,21 +5,21 @@ import { useLang } from '../contexts/LanguageContext'
 import { t } from '../i18n/translations'
 
 const LinkedInIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
     <circle cx="4" cy="4" r="2"/>
   </svg>
 )
 
 const EmailIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
     <polyline points="22,6 12,13 2,6"/>
   </svg>
 )
 
 const StarIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
   </svg>
 )
@@ -57,17 +57,21 @@ function Avatar({ member, size = 64, muted = false }) {
     )
   }
   return (
-    <div style={{
-      width: size, height: size, borderRadius: '50%',
-      background: muted ? 'rgba(75,85,99,0.5)' : gradient,
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
-      fontSize: size * 0.3, fontWeight: '700',
-      color: muted ? '#9ca3af' : 'white',
-      flexShrink: 0,
-      border: '2px solid rgba(255,255,255,0.08)',
-      boxShadow: muted ? 'none' : '0 4px 20px rgba(37,99,235,0.25)',
-    }}>
-      {getInitials(member.name)}
+    <div
+      role="img"
+      aria-label={member.name}
+      style={{
+        width: size, height: size, borderRadius: '50%',
+        background: muted ? 'rgba(75,85,99,0.5)' : gradient,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        fontSize: size * 0.3, fontWeight: '700',
+        color: muted ? '#9ca3af' : 'white',
+        flexShrink: 0,
+        border: '2px solid rgba(255,255,255,0.08)',
+        boxShadow: muted ? 'none' : '0 4px 20px rgba(37,99,235,0.25)',
+      }}
+    >
+      <span aria-hidden="true">{getInitials(member.name)}</span>
     </div>
   )
 }
@@ -190,7 +194,7 @@ function ExecutiveCard({ member, lang, formerLabel }) {
           background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)',
           borderRadius: '20px', padding: '4px 12px', marginBottom: '16px',
         }}>
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#4b5563" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#4b5563" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
             <path d="M6 12v5c3 3 9 3 12 0v-5"/>
           </svg>
@@ -244,7 +248,7 @@ function MemberCard({ member, section, lang }) {
 
       {member.university && (
         <div style={{ display: 'flex', alignItems: 'center', gap: '5px', marginBottom: '12px' }}>
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4b5563" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4b5563" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
             <path d="M6 12v5c3 3 9 3 12 0v-5"/>
           </svg>
@@ -323,13 +327,13 @@ const DEPARTMENT_KEYS = [
 ]
 
 const FounderIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
   </svg>
 )
 
 const LeadershipIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
     <circle cx="9" cy="7" r="4"/>
     <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>

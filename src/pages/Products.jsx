@@ -4,20 +4,20 @@ import { useLang } from '../contexts/LanguageContext'
 import { t } from '../i18n/translations'
 
 const CheckIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <polyline points="20 6 9 17 4 12"/>
   </svg>
 )
 
 const ArrowRight = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <line x1="5" y1="12" x2="19" y2="12"/>
     <polyline points="12 5 19 12 12 19"/>
   </svg>
 )
 
 const TouchlessIllustration = () => (
-  <svg width="100%" height="100%" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="100%" height="100%" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of Touchless: a monitor with a gaze-tracking crosshair overlay, showing hands-free cursor control">
     <defs>
       <radialGradient id="tglow" cx="50%" cy="50%" r="50%">
         <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.2"/>
@@ -114,7 +114,7 @@ const BRAILLE_ROW2 = [
 ]
 
 const BrailleIllustration = () => (
-  <svg width="100%" height="100%" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="100%" height="100%" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of DotSense: a braille display device with raised dot cells and tactile feedback indicators">
     <defs>
       <radialGradient id="glow3" cx="50%" cy="50%" r="50%">
         <stop offset="0%" stopColor="#2563eb" stopOpacity="0.22"/>
