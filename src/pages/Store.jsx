@@ -124,14 +124,20 @@ const FILTER_CATEGORIES = [
   { key: 'merch',    labelKey: 'filterMerch' },
 ]
 
-const formatPrice = (amount) =>
-  new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount)
-
 // ─── Main Component ───────────────────────────────────────────────────────────
+
+const PEN_RATE = 3.75
 
 export default function Store() {
   const { lang } = useLang()
   const tr = t[lang].store
+
+  const formatPrice = (amount) => {
+    if (lang === 'es') {
+      return new Intl.NumberFormat('es-PE', { style: 'currency', currency: 'PEN' }).format(amount * PEN_RATE)
+    }
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount)
+  }
 
   const [activeFilter, setActiveFilter]   = useState('all')
   const [cart, setCart]                   = useState([])

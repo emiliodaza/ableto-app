@@ -184,8 +184,8 @@ export default function Navbar() {
               </Link>
             ))}
             <div style={langToggleStyle}>
-              <span style={getLangSpanStyle('en')} onClick={() => setLang('en')}>EN</span>
-              <span style={getLangSpanStyle('es')} onClick={() => setLang('es')}>ES</span>
+              <span style={getLangSpanStyle('en')} onClick={() => setLang('en')}>🇺🇸 EN</span>
+              <span style={getLangSpanStyle('es')} onClick={() => setLang('es')}>🇵🇪 ES</span>
             </div>
           </div>
 
