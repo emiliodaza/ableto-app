@@ -60,7 +60,7 @@ export default function Contact() {
       icon: <LocationIcon />,
       label: tr.contact.location,
       value: tr.contact.locationVal,
-      sub: '',
+      sub: tr.contact.locationSub,
       color: '#3b82f6',
     },
     {
