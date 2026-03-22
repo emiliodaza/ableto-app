@@ -112,10 +112,10 @@ const PinButtonIcon = () => (
 const PRODUCTS = [
   { id: 'dotsense-preorder', price: 60,   category: 'preorder', badgeColor: '#2563eb', Icon: DotSenseIcon },
   { id: 'touchless-beta',    price: 50,   category: 'preorder', badgeColor: '#7c3aed', Icon: TouchlessIcon },
-  { id: 'hoodie',            price: 65,   category: 'merch',    badgeColor: '#059669', Icon: HoodieIcon },
-  { id: 'notebook',          price: 20,   category: 'merch',    badgeColor: '#059669', Icon: NotebookIcon },
-  { id: 'cup',               price: 25,   category: 'merch',    badgeColor: '#059669', Icon: CupIcon },
-  { id: 'pin-button',        price: 4.99, category: 'merch',    badgeColor: '#059669', Icon: PinButtonIcon },
+  { id: 'hoodie',            price: 30,   category: 'merch',    badgeColor: '#059669', Icon: HoodieIcon },
+  { id: 'notebook',          price: 10,   category: 'merch',    badgeColor: '#059669', Icon: NotebookIcon },
+  { id: 'cup',               price: 12,   category: 'merch',    badgeColor: '#059669', Icon: CupIcon },
+  { id: 'pin-button',        price: 1.99, category: 'merch',    badgeColor: '#059669', Icon: PinButtonIcon },
 ]
 
 const FILTER_CATEGORIES = [
