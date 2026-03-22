@@ -588,6 +588,26 @@ export default function Home() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
             {[
               {
+                title: tr.home.dotSenseCardTitle,
+                badge: tr.home.dotSenseCardBadge,
+                desc: tr.home.dotSenseShort,
+                color: '#2563eb',
+                inDev: true,
+                icon: (
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <circle cx="12" cy="12" r="3" fill="#2563eb"/>
+                    <circle cx="20" cy="12" r="3" fill="#2563eb"/>
+                    <circle cx="28" cy="12" r="3" fill="#2563eb"/>
+                    <circle cx="12" cy="20" r="3" fill="#60a5fa"/>
+                    <circle cx="20" cy="20" r="3" fill="#2563eb"/>
+                    <circle cx="28" cy="20" r="3" fill="#60a5fa"/>
+                    <circle cx="12" cy="28" r="3" fill="#2563eb"/>
+                    <circle cx="20" cy="28" r="3" fill="#60a5fa"/>
+                    <circle cx="28" cy="28" r="3" fill="#2563eb"/>
+                  </svg>
+                ),
+              },
+              {
                 title: tr.home.touchlessCardTitle,
                 badge: tr.home.touchlessCardBadge,
                 desc: tr.home.touchlessShort,
@@ -596,26 +616,8 @@ export default function Home() {
                 icon: (
                   <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
                     <circle cx="20" cy="20" r="19" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="3 3"/>
-                    <path d="M20 10 C15 10 12 14 12 20 C12 26 15.5 29 20 29 C24.5 29 28 26 28 20" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round"/>
-                    <circle cx="28" cy="12" r="3" fill="#3b82f6"/>
+                    <path d="M20 10 C15 10 12 14 12 20 C12 26 15.5 29 20 29 C24.5 29 28 26 28 20" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round"/>                    <circle cx="28" cy="12" r="3" fill="#3b82f6"/>
                     <path d="M25 8 L28 12 L32 10" stroke="#60a5fa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                ),
-              },
-              {
-                title: tr.home.dotSenseCardTitle,
-                badge: tr.home.dotSenseCardBadge,
-                desc: tr.home.dotSenseShort,
-                color: '#2563eb',
-                icon: (
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <rect x="6" y="10" width="28" height="20" rx="3" stroke="#2563eb" strokeWidth="1.5"/>
-                    <circle cx="13" cy="18" r="2" fill="#2563eb"/>
-                    <circle cx="20" cy="18" r="2" fill="#60a5fa"/>
-                    <circle cx="27" cy="18" r="2" fill="#2563eb"/>
-                    <circle cx="13" cy="25" r="2" fill="#60a5fa"/>
-                    <circle cx="20" cy="25" r="2" fill="#2563eb"/>
-                    <circle cx="27" cy="25" r="2" fill="#60a5fa"/>
                   </svg>
                 ),
               },
