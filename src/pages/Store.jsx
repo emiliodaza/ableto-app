@@ -146,6 +146,7 @@ export default function Store() {
   const [hoveredProduct, setHoveredProduct] = useState(null)
   const [hoveredFilter, setHoveredFilter] = useState(null)
   const [hoveredLocation, setHoveredLocation] = useState(null)
+  const [notifyOpen, setNotifyOpen]       = useState(false)
 
   // Checkout form state
   const [formName, setFormName]           = useState('')
@@ -326,9 +327,9 @@ export default function Store() {
           {tr.sub}
         </p>
 
-        {/* View Cart button */}
+        {/* Notify interest button */}
         <button
-          onClick={() => setCartOpen(true)}
+          onClick={() => setNotifyOpen(true)}
           style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -342,25 +343,11 @@ export default function Store() {
             fontWeight: '600',
             cursor: 'pointer',
           }}
-          aria-label={`${tr.viewCart} (${cartCount})`}
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" />
-            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
           </svg>
-          {tr.viewCart}
-          {cartCount > 0 && (
-            <span style={{
-              background: '#2563eb',
-              color: 'white',
-              borderRadius: '100px',
-              padding: '2px 8px',
-              fontSize: '12px',
-              fontWeight: '700',
-            }}>
-              {cartCount}
-            </span>
-          )}
+          {lang === 'es' ? 'Notifícame cuando esté disponible' : 'Notify Me When Available'}
         </button>
       </div>
 
@@ -403,6 +390,28 @@ export default function Store() {
           })}
         </div>
       </div>
+
+      {/* ── Merch Support Banner ─────────────────────────────────────────── */}
+      {(activeFilter === 'all' || activeFilter === 'merch') && (
+        <div style={{ ...containerStyle, marginBottom: '32px' }}>
+          <div style={{
+            background: 'rgba(5,150,105,0.08)',
+            border: '1px solid rgba(5,150,105,0.22)',
+            borderRadius: '14px',
+            padding: '18px 24px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '14px',
+          }}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }} aria-hidden="true">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <p style={{ color: '#6ee7b7', fontSize: '14px', lineHeight: 1.6, margin: 0 }}>
+              {tr.merchSupport}
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* ── Product Grid ─────────────────────────────────────────────────── */}
       <div style={containerStyle}>
@@ -484,20 +493,20 @@ export default function Store() {
                     {formatPrice(product.price)}
                   </span>
                   <button
-                    onClick={() => addToCart(product)}
+                    onClick={() => setNotifyOpen(true)}
                     style={{
-                      background: inCart ? 'rgba(37,99,235,0.2)' : 'linear-gradient(135deg,#2563eb,#1d4ed8)',
-                      border: inCart ? '1px solid rgba(37,99,235,0.4)' : 'none',
+                      background: 'linear-gradient(135deg,#2563eb,#1d4ed8)',
+                      border: 'none',
                       borderRadius: '10px',
                       padding: '10px 20px',
-                      color: inCart ? '#60a5fa' : 'white',
+                      color: 'white',
                       fontSize: '14px',
                       fontWeight: '700',
                       cursor: 'pointer',
                       transition: 'all 0.2s',
                     }}
                   >
-                    {inCart ? tr.added : tr.addToCart}
+                    {lang === 'es' ? 'Me Interesa' : 'I\'m Interested'}
                   </button>
                 </div>
               </div>
@@ -592,6 +601,87 @@ export default function Store() {
           </div>
         </div>
       </div>
+
+      {/* ── Coming Soon Modal ────────────────────────────────────────────── */}
+      {notifyOpen && (
+        <>
+          <div
+            onClick={() => setNotifyOpen(false)}
+            style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', zIndex: 1200, backdropFilter: 'blur(6px)' }}
+          />
+          <div style={{
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 1300,
+            background: 'linear-gradient(160deg, #071629, #0a1c38)',
+            border: '1px solid rgba(37,99,235,0.25)',
+            borderRadius: '24px',
+            padding: '48px 40px',
+            maxWidth: '460px',
+            width: '90%',
+            textAlign: 'center',
+            boxShadow: '0 24px 80px rgba(0,0,0,0.6)',
+          }}>
+            {/* Icon */}
+            <div style={{
+              width: '64px', height: '64px', borderRadius: '18px',
+              background: 'rgba(37,99,235,0.15)', border: '1px solid rgba(37,99,235,0.3)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              margin: '0 auto 24px', color: '#3b82f6',
+            }}>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+
+            {/* Badge */}
+            <div style={{
+              display: 'inline-flex', alignItems: 'center', gap: '6px',
+              background: 'rgba(37,99,235,0.1)', border: '1px solid rgba(37,99,235,0.25)',
+              borderRadius: '100px', padding: '4px 14px', marginBottom: '20px',
+            }}>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#3b82f6', display: 'inline-block' }} />
+              <span style={{ color: '#60a5fa', fontSize: '11px', fontWeight: '700', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                {lang === 'es' ? 'Próximamente' : 'Coming Soon'}
+              </span>
+            </div>
+
+            <h2 style={{ color: 'white', fontSize: '22px', fontWeight: '800', letterSpacing: '-0.02em', marginBottom: '12px' }}>
+              {lang === 'es' ? 'Estamos preparando todo' : 'We\'re getting ready'}
+            </h2>
+            <p style={{ color: '#9ca3af', fontSize: '14px', lineHeight: 1.7, marginBottom: '28px' }}>
+              {lang === 'es'
+                ? 'Nuestro equipo está finalizando la logística de envíos y operaciones. Pronto podrás adquirir nuestros productos directamente desde aquí.'
+                : 'Our team is finalizing fulfillment and shipping operations. Our store will be open for orders very soon.'}
+            </p>
+
+            {/* Contact CTA */}
+            <a
+              href="mailto:team@abletolab.org"
+              style={{
+                display: 'block', background: '#2563eb', color: 'white',
+                borderRadius: '12px', padding: '14px 24px',
+                fontSize: '14px', fontWeight: '700', textDecoration: 'none',
+                marginBottom: '12px', transition: 'all 0.2s',
+              }}
+            >
+              {lang === 'es' ? 'Contáctanos para más información' : 'Contact us for more information'}
+            </a>
+            <button
+              onClick={() => setNotifyOpen(false)}
+              style={{
+                background: 'transparent', border: '1px solid rgba(255,255,255,0.08)',
+                color: '#6b7280', borderRadius: '12px', padding: '12px 24px',
+                fontSize: '14px', fontWeight: '600', cursor: 'pointer', width: '100%',
+              }}
+            >
+              {lang === 'es' ? 'Cerrar' : 'Close'}
+            </button>
+          </div>
+        </>
+      )}
 
       {/* ── Cart Drawer Overlay ──────────────────────────────────────────── */}
       {cartOpen && (

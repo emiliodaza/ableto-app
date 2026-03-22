@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useLang } from '../contexts/LanguageContext'
 import { t } from '../i18n/translations'
 import emailjs from '@emailjs/browser'
-import { EMAILJS_SERVICE_ID, EMAILJS_APPLY_TEMPLATE, EMAILJS_PUBLIC_KEY } from '../config/emailjs'
+import { EMAILJS_SERVICE_ID, EMAILJS_APPLY_TEMPLATE, EMAILJS_APPLY_CONFIRM_TEMPLATE, EMAILJS_PUBLIC_KEY } from '../config/emailjs'
 
 const CheckCircleIcon = () => (
   <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -52,22 +52,28 @@ export default function Apply() {
     setSending(true)
     setError('')
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_APPLY_TEMPLATE,
-        {
-          full_name: form.fullName,
-          email: form.email,
-          phone: form.phone || 'Not provided',
-          role: form.role,
-          skills: form.skills,
-          motivation: form.motivation,
-          portfolio: form.portfolio || 'Not provided',
-          linkedin: form.linkedin || 'Not provided',
-          resume: form.resume,
-        },
-        EMAILJS_PUBLIC_KEY
-      )
+      const params = {
+        full_name: form.fullName,
+        email: form.email,
+        phone: form.phone || 'Not provided',
+        role: form.role,
+        skills: form.skills,
+        motivation: form.motivation,
+        portfolio: form.portfolio || 'Not provided',
+        linkedin: form.linkedin || 'Not provided',
+        resume: form.resume,
+        confirm_email_subject: tr.apply.confirmEmailSubject,
+        confirm_greeting: tr.apply.confirmEmailGreeting,
+        confirm_body: tr.apply.confirmEmailBody,
+        confirm_role_label: tr.apply.confirmEmailRoleLabel,
+        confirm_next_label: tr.apply.confirmEmailNextLabel,
+        confirm_next: tr.apply.confirmEmailNext,
+        confirm_footer: tr.apply.confirmEmailFooter,
+      }
+      // Notify the team with full application details
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_APPLY_TEMPLATE, params, EMAILJS_PUBLIC_KEY)
+      // Send confirmation to the applicant
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_APPLY_CONFIRM_TEMPLATE, params, EMAILJS_PUBLIC_KEY)
       setSubmitted(true)
     } catch (err) {
       setError('Something went wrong. Please email us directly at team@abletolab.org')

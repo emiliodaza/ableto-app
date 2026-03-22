@@ -192,7 +192,7 @@ export const members = [
   {
     id: '6',
     name: 'Diego Melgar',
-    role: 'Mechatronics Engineer',
+    role: 'Mechatronics Engineer & Hardware Engineering Operations Lead',
     university: 'Texas A&M University',
     department: 'Engineering',
     isFounder: false,

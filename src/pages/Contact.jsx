@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useLang } from '../contexts/LanguageContext'
 import { t } from '../i18n/translations'
 import emailjs from '@emailjs/browser'
-import { EMAILJS_SERVICE_ID, EMAILJS_CONTACT_TEMPLATE, EMAILJS_PUBLIC_KEY } from '../config/emailjs'
+import { EMAILJS_SERVICE_ID, EMAILJS_CONTACT_TEMPLATE, EMAILJS_CONTACT_CONFIRM_TEMPLATE, EMAILJS_PUBLIC_KEY } from '../config/emailjs'
 
 const LocationIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -89,17 +89,23 @@ export default function Contact() {
     setSending(true)
     setError('')
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_CONTACT_TEMPLATE,
-        {
-          from_name: `${form.firstName} ${form.lastName}`,
-          from_email: form.email,
-          subject: form.subject,
-          message: form.message,
-        },
-        EMAILJS_PUBLIC_KEY
-      )
+      const params = {
+        from_name: `${form.firstName} ${form.lastName}`,
+        from_email: form.email,
+        subject: form.subject,
+        message: form.message,
+        confirm_email_subject: tr.contact.confirmEmailSubject,
+        confirm_greeting: tr.contact.confirmEmailGreeting,
+        confirm_body: tr.contact.confirmEmailBody,
+        confirm_subject_label: tr.contact.confirmEmailSubjectLabel,
+        confirm_message_label: tr.contact.confirmEmailMessageLabel,
+        confirm_follow_up: tr.contact.confirmEmailFollowUp,
+        confirm_footer: tr.contact.confirmEmailFooter,
+      }
+      // Notify the team
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_CONTACT_TEMPLATE, params, EMAILJS_PUBLIC_KEY)
+      // Send confirmation to the user
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_CONTACT_CONFIRM_TEMPLATE, params, EMAILJS_PUBLIC_KEY)
       setSubmitted(true)
     } catch (err) {
       setError('Something went wrong. Please email us directly at team@abletolab.org')
