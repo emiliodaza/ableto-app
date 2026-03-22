@@ -62,12 +62,12 @@ export const members = [
     bio: 'Co-founded AbleTo with a vision to make assistive hardware accessible to all. Leads the design and engineering of our physical accessibility devices from concept through production.',
     bioEs: 'Co-fundó AbleTo con la visión de hacer el hardware asistivo accesible para todos. Lidera el diseño y la ingeniería de nuestros dispositivos de accesibilidad física desde el concepto hasta la producción.',
     bios: {
-      executive: 'Co-Founder and hardware visionary behind AbleTo\'s physical products. Valeria designs and engineers the tactile and sensor systems that bring our accessibility solutions to life, setting the benchmark for accessible hardware built in Latin America.',
-      founders: 'Co-founded AbleTo to prove that world-class assistive hardware can be built in Latin America. Leads all hardware R&D from concept through production.',
+      executive: 'Co-Founder and hardware visionary behind AbleTo\'s physical products. Valeria designs and engineers the tactile and sensor systems that bring our accessibility solutions to life, setting the benchmark for accessible hardware.',
+      founders: 'Co-founded AbleTo to prove that world-class assistive hardware can be built across New York and Lima. Leads all hardware R&D from concept through production.',
     },
     biosEs: {
-      executive: 'Co-Fundadora y visionaria del hardware físico de AbleTo. Valeria diseña e ingenia los sistemas táctiles y de sensores que dan vida a nuestras soluciones de accesibilidad, estableciendo el estándar para el hardware asistivo construido en América Latina.',
-      founders: 'Co-fundó AbleTo para demostrar que el hardware asistivo de clase mundial puede construirse en América Latina. Lidera toda la I+D de hardware desde el concepto hasta la producción.',
+      executive: 'Co-Fundadora y visionaria del hardware físico de AbleTo. Valeria diseña e ingenia los sistemas táctiles y de sensores que dan vida a nuestras soluciones de accesibilidad, estableciendo el estándar para el hardware asistivo.',
+      founders: 'Co-fundó AbleTo para demostrar que el hardware asistivo de clase mundial puede construirse en Nueva York y Lima. Lidera toda la I+D de hardware desde el concepto hasta la producción.',
     },
     photo: '',
     linkedin: '',
