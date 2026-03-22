@@ -117,12 +117,12 @@ const ToteIcon = () => (
 // ─── Product Data ─────────────────────────────────────────────────────────────
 
 const PRODUCTS = [
-  { id: 'dotsense-preorder', price: 249, category: 'preorder', badgeColor: '#2563eb', Icon: DotSenseIcon },
-  { id: 'touchless-beta',    price: 99,  category: 'preorder', badgeColor: '#7c3aed', Icon: TouchlessIcon },
-  { id: 'braille-kit',       price: 79,  category: 'accessories', badgeColor: '#059669', Icon: BrailleKitIcon },
-  { id: 'hoodie',            price: 65,  category: 'merch', badgeColor: '#059669', Icon: HoodieIcon },
-  { id: 'tshirt',            price: 35,  category: 'merch', badgeColor: '#059669', Icon: TshirtIcon },
-  { id: 'tote',              price: 22,  category: 'merch', badgeColor: '#059669', Icon: ToteIcon },
+  { id: 'dotsense-preorder', price: 149, category: 'preorder', badgeColor: '#2563eb', Icon: DotSenseIcon },
+  { id: 'touchless-beta',    price: 49,  category: 'preorder', badgeColor: '#7c3aed', Icon: TouchlessIcon },
+  { id: 'braille-kit',       price: 39,  category: 'accessories', badgeColor: '#059669', Icon: BrailleKitIcon },
+  { id: 'hoodie',            price: 45,  category: 'merch', badgeColor: '#059669', Icon: HoodieIcon },
+  { id: 'tshirt',            price: 25,  category: 'merch', badgeColor: '#059669', Icon: TshirtIcon },
+  { id: 'tote',              price: 15,  category: 'merch', badgeColor: '#059669', Icon: ToteIcon },
 ]
 
 const FILTER_CATEGORIES = [
