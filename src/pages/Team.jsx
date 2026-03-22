@@ -202,23 +202,6 @@ function ExecutiveCard({ member, lang, formerLabel }) {
         {getBio(member, 'executive', lang)}
       </p>
 
-      {!isFormer && member.projects && member.projects.length > 0 && (
-        <div style={{
-          width: '100%', paddingTop: '14px',
-          borderTop: '1px solid rgba(255,255,255,0.05)',
-          display: 'flex', flexWrap: 'wrap', gap: '5px', justifyContent: 'center',
-          marginBottom: '14px',
-        }}>
-          {member.projects.map(p => (
-            <span key={p} style={{
-              background: 'rgba(37,99,235,0.16)', border: '1px solid rgba(37,99,235,0.18)',
-              borderRadius: '5px', padding: '3px 9px',
-              fontSize: '10px', color: '#93c5fd', fontWeight: '600', letterSpacing: '0.02em',
-            }}>{p}</span>
-          ))}
-        </div>
-      )}
-
       {!isFormer && <SocialLinks member={member} />}
     </div>
   )
@@ -276,18 +259,6 @@ function MemberCard({ member, section, lang }) {
       )}
 
       <div style={{ height: '1px', background: 'rgba(255,255,255,0.05)', marginBottom: '12px' }} />
-
-      {member.projects && member.projects.length > 0 && (
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '12px' }}>
-          {member.projects.map(p => (
-            <span key={p} style={{
-              background: 'rgba(37,99,235,0.16)', border: '1px solid rgba(37,99,235,0.18)',
-              borderRadius: '5px', padding: '3px 8px',
-              fontSize: '10px', color: '#93c5fd', fontWeight: '600', letterSpacing: '0.02em',
-            }}>{p}</span>
-          ))}
-        </div>
-      )}
 
       <SocialLinks member={member} />
     </div>
@@ -370,8 +341,13 @@ export default function Team() {
   const { lang } = useLang()
   const tr = t[lang]
 
-  const coFounders = members.filter(m => m.isFounder)
-  const execLeadership = members.filter(m => m.isExecutive)
+  const seen = new Set()
+  const execBoard = members.filter(m => {
+    if (!(m.isFounder || m.isExecutive)) return false
+    if (seen.has(m.id)) return false
+    seen.add(m.id)
+    return true
+  })
 
   return (
     <div style={{
@@ -419,43 +395,23 @@ export default function Team() {
           </p>
         </div>
 
-        {/* ── Co-Founders ───────────────────────────────────────────── */}
+        {/* ── Co-Founders & Executive Board ─────────────────────────── */}
         <section style={{ marginBottom: '72px' }}>
           <DivisionHeader
             icon={<FounderIcon />}
-            label={tr.team.coFoundersLabel}
-            count={coFounders.filter(m => !m.isFormer).length}
+            label={tr.team.execBoard}
+            count={execBoard.length}
           />
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
             gap: '20px',
           }}>
-            {coFounders.map(m => (
+            {execBoard.map(m => (
               <ExecutiveCard key={m.id} member={m} lang={lang} formerLabel={tr.team.formerBadge} />
             ))}
           </div>
         </section>
-
-        {/* ── Executive Board ────────────────────────────────────────── */}
-        {execLeadership.length > 0 && (
-          <section style={{ marginBottom: '72px' }}>
-            <DivisionHeader
-              icon={<LeadershipIcon />}
-              label={tr.team.execLeadershipLabel}
-              count={execLeadership.filter(m => !m.isFormer).length}
-            />
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
-              gap: '20px',
-            }}>
-              {execLeadership.map(m => (
-                <ExecutiveCard key={m.id} member={m} lang={lang} formerLabel={tr.team.formerBadge} />
-              ))}
-            </div>
-          </section>
-        )}
 
         {/* ── Department Sections ───────────────────────────────────── */}
         {DEPARTMENT_KEYS.map(dept => {

@@ -475,19 +475,19 @@ export default function Products() {
         <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(37,99,235,0.3), transparent)' }} />
       </div>
 
-      {/* Touchless Product */}
+      {/* DotSense Product */}
       <ProductSection
         product={{
-          title: tr.products.touchlessTitle,
-          badge: tr.products.touchlessBadge,
-          description: tr.products.touchlessDesc,
-          features: tr.products.touchlessFeatures,
+          title: tr.products.dotSenseTitle,
+          badge: tr.products.dotSenseBadge,
+          description: tr.products.dotSenseDesc,
+          features: tr.products.dotSenseFeatures,
           keyFeatures: tr.products.keyFeatures,
           getInTouch: tr.products.getInTouch,
-          illustration: <TouchlessIllustration />,
-          color: '#3b82f6',
-          glowColor: '#3b82f6',
-          glowRgb: '59,130,246',
+          illustration: <BrailleIllustration />,
+          color: '#2563eb',
+          glowColor: '#2563eb',
+          glowRgb: '37,99,235',
           inDevelopment: true,
           inDevelopmentLabel: tr.products.touchlessInDev,
         }}
@@ -503,19 +503,19 @@ export default function Products() {
         <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(37,99,235,0.3), transparent)' }} />
       </div>
 
-      {/* DotSense Product */}
+      {/* Touchless Product */}
       <ProductSection
         product={{
-          title: tr.products.dotSenseTitle,
-          badge: tr.products.dotSenseBadge,
-          description: tr.products.dotSenseDesc,
-          features: tr.products.dotSenseFeatures,
+          title: tr.products.touchlessTitle,
+          badge: tr.products.touchlessBadge,
+          description: tr.products.touchlessDesc,
+          features: tr.products.touchlessFeatures,
           keyFeatures: tr.products.keyFeatures,
           getInTouch: tr.products.getInTouch,
-          illustration: <BrailleIllustration />,
-          color: '#2563eb',
-          glowColor: '#2563eb',
-          glowRgb: '37,99,235',
+          illustration: <TouchlessIllustration />,
+          color: '#3b82f6',
+          glowColor: '#3b82f6',
+          glowRgb: '59,130,246',
           inDevelopment: true,
           inDevelopmentLabel: tr.products.touchlessInDev,
         }}

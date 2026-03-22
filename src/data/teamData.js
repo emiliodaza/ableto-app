@@ -155,7 +155,7 @@ export const members = [
     department: 'Founders',
     isFounder: true,
     isExecutive: false,
-    isFormer: true,
+    isFormer: false,
     showInEng: false,
     bio: 'Co-Founder of AbleTo. Among the first to help shape the company\'s technical foundations, bringing Stanford-level engineering rigor to AbleTo\'s earliest and most critical software challenges.',
     bioEs: 'Co-Fundador de AbleTo. Entre los primeros en dar forma a las bases técnicas de la empresa, aportando el rigor de ingeniería de Stanford a los desafíos de software más tempranos y críticos de AbleTo.',
