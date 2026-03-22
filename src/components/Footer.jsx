@@ -64,6 +64,7 @@ export default function Footer() {
     { path: '/', label: tr.footer.navLinks.home },
     { path: '/team', label: tr.footer.navLinks.team },
     { path: '/products', label: tr.footer.navLinks.products },
+    { path: '/store', label: tr.footer.navLinks.store },
     { path: '/contact', label: tr.footer.navLinks.contact },
     { path: '/apply', label: tr.footer.navLinks.apply },
   ]

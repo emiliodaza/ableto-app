@@ -15,9 +15,14 @@
 // Application template variables:
 //   {{full_name}}   {{email}}   {{phone}}   {{role}}   {{skills}}
 //   {{motivation}}  {{portfolio}}  {{linkedin}}  {{resume}}
+//
+// Store order template variables:
+//   {{customer_name}}  {{customer_email}}  {{customer_phone}}
+//   {{order_items}}    {{order_total}}     {{delivery_info}}   {{notes}}
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const EMAILJS_SERVICE_ID   = 'YOUR_SERVICE_ID'
 export const EMAILJS_CONTACT_TEMPLATE = 'YOUR_CONTACT_TEMPLATE_ID'
 export const EMAILJS_APPLY_TEMPLATE   = 'YOUR_APPLY_TEMPLATE_ID'
+export const EMAILJS_STORE_TEMPLATE    = 'YOUR_STORE_TEMPLATE_ID'
 export const EMAILJS_PUBLIC_KEY   = 'YOUR_PUBLIC_KEY'

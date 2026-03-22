@@ -11,6 +11,7 @@ import Admin from './pages/Admin'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
 import CookiePolicy from './pages/CookiePolicy'
+import Store from './pages/Store'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/cookies" element={<CookiePolicy />} />
+            <Route path="/store" element={<Store />} />
           </Routes>
         </main>
         <Footer />

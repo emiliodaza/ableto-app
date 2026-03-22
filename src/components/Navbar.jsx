@@ -31,6 +31,7 @@ export default function Navbar() {
     { path: '/', label: tr.nav.home },
     { path: '/team', label: tr.nav.team },
     { path: '/products', label: tr.nav.products },
+    { path: '/store', label: tr.nav.store },
     { path: '/contact', label: tr.nav.contact },
     { path: '/apply', label: tr.nav.apply },
   ]
