@@ -324,6 +324,7 @@ const DEPARTMENT_KEYS = [
   { key: 'Engineering', bioKey: 'engineering' },
   { key: 'Design & Product', bioKey: 'design' },
   { key: 'Marketing & Communications', bioKey: 'marketing' },
+  { key: 'Business & Research', bioKey: 'business' },
 ]
 
 const FounderIcon = () => (
@@ -421,7 +422,9 @@ export default function Team() {
         {DEPARTMENT_KEYS.map(dept => {
           const deptMembers = members.filter(m =>
             !m.isFormer &&
-            (m.department === dept.key || (dept.key === 'Engineering' && m.showInEng))
+            (m.department === dept.key ||
+              (dept.key === 'Engineering' && m.showInEng) ||
+              (dept.key === 'Business & Research' && m.showInBusiness))
           )
           if (deptMembers.length === 0) return null
           const sectionTr = tr.team.sections[dept.key]

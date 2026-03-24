@@ -134,13 +134,16 @@ export const members = [
     isFounder: false,
     isExecutive: true,
     showInEng: false,
+    showInBusiness: true,
     bio: 'Chief Business Officer at AbleTo, driving strategic partnerships, business development, and the company\'s long-term commercial growth across global markets.',
     bioEs: 'Directora de Negocios de AbleTo, impulsando alianzas estratégicas, desarrollo empresarial y el crecimiento comercial a largo plazo de la empresa en mercados globales.',
     bios: {
       executive: 'Chief Business Officer responsible for shaping AbleTo\'s commercial strategy and forging the global partnerships that bring our accessibility technology to market. Grace bridges mission and business to build a company that scales with integrity.',
+      business: 'Leads AbleTo\'s commercial strategy and business development, forging the partnerships that bring our accessibility technology to the markets and communities that need it most.',
     },
     biosEs: {
       executive: 'Directora de Negocios responsable de definir la estrategia comercial de AbleTo y forjar las alianzas globales que llevan nuestra tecnología de accesibilidad al mercado. Grace une la misión empresarial con la visión tecnológica para construir una compañía que crece con integridad.',
+      business: 'Lidera la estrategia comercial y el desarrollo de negocios de AbleTo, forjando las alianzas que llevan nuestra tecnología de accesibilidad a los mercados y comunidades que más la necesitan.',
     },
     photo: '',
     linkedin: '',
