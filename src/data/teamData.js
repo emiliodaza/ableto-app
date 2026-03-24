@@ -321,4 +321,22 @@ export const members = [
     email: '',
     projects: ['DotSense'],
   },
+
+  // ── Business & Research ──────────────────────────────────────────────────────
+  {
+    id: '17',
+    name: 'Felipe Torres',
+    role: 'Business & Research Analyst',
+    university: 'St. Francis College',
+    department: 'Business & Research',
+    isFounder: false,
+    isExecutive: false,
+    showInEng: false,
+    bio: 'Leverages a background in healthcare management and clinical operations to drive business strategy and research at AbleTo, translating on-the-ground insight into solutions that expand access, improve efficiency, and deliver better outcomes.',
+    bioEs: 'Aplica su formación en gestión de salud y experiencia en servicios clínicos y operaciones para impulsar la estrategia de negocio e investigación en AbleTo, convirtiendo el conocimiento de primera mano en soluciones que amplían el acceso, mejoran la eficiencia y generan mejores resultados.',
+    photo: '',
+    linkedin: '',
+    email: '',
+    projects: ['DotSense'],
+  },
 ]
