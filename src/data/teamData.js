@@ -77,7 +77,7 @@ export const members = [
   {
     id: '13',
     name: 'Cielo Infante',
-    role: 'Co-Founder & COO (Chief Operating Officer)',
+    role: 'Co-Founder & Chief Operating Officer (COO)',
     university: 'NYU',
     department: 'Operations & Strategy',
     isFounder: true,
