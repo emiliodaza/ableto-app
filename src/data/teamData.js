@@ -77,7 +77,7 @@ export const members = [
   {
     id: '13',
     name: 'Cielo Infante',
-    role: 'Co-Founder & COO',
+    role: 'Co-Founder & COO (Chief Operating Officer)',
     university: 'NYU',
     department: 'Operations & Strategy',
     isFounder: true,
@@ -128,7 +128,7 @@ export const members = [
   {
     id: '16',
     name: 'Grace Zubieta',
-    role: 'Chief Business Officer',
+    role: 'Chief Business Officer (CBO)',
     university: 'NYU',
     department: 'Founders',
     isFounder: false,
