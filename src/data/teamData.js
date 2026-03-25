@@ -111,13 +111,13 @@ export const members = [
     isExecutive: false,
     isFormer: false,
     showInEng: false,
-    bio: 'Co-Founder of AbleTo. Among the first to help shape the company\'s technical foundations, bringing Stanford-level engineering rigor to AbleTo\'s earliest and most critical software challenges.',
-    bioEs: 'Co-Fundador de AbleTo. Entre los primeros en dar forma a las bases técnicas de la empresa, aportando el rigor de ingeniería de Stanford a los desafíos de software más tempranos y críticos de AbleTo.',
+    bio: 'Co-Founder of AbleTo. Among the first to help shape the company\'s technical foundations, bringing engineering rigor to AbleTo\'s earliest and most critical software challenges.',
+    bioEs: 'Co-Fundador de AbleTo. Entre los primeros en dar forma a las bases técnicas de la empresa, aportando rigor de ingeniería a los desafíos de software más tempranos y críticos de AbleTo.',
     bios: {
-      executive: 'Co-Founder of AbleTo and key architect of the company\'s early technical direction. Santiago\'s engineering discipline and vision from Stanford helped lay the groundwork for the platforms AbleTo builds on today.',
+      executive: 'Co-Founder of AbleTo and key architect of the company\'s early technical direction. Santiago\'s engineering discipline and vision helped lay the groundwork for the platforms AbleTo builds on today.',
     },
     biosEs: {
-      executive: 'Co-Fundador de AbleTo y arquitecto clave de la dirección técnica temprana de la empresa. La disciplina de ingeniería y visión de Stanford de Santiago ayudaron a sentar las bases de las plataformas en las que AbleTo construye hoy.',
+      executive: 'Co-Fundador de AbleTo y arquitecto clave de la dirección técnica temprana de la empresa. La disciplina de ingeniería y visión de Santiago ayudaron a sentar las bases de las plataformas en las que AbleTo construye hoy.',
     },
     photo: '',
     linkedin: '',
