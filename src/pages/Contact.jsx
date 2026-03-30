@@ -3,6 +3,7 @@ import { useLang } from '../contexts/LanguageContext'
 import { t } from '../i18n/translations'
 import emailjs from '@emailjs/browser'
 import { EMAILJS_SERVICE_ID, EMAILJS_CONTACT_TEMPLATE, EMAILJS_CONTACT_CONFIRM_TEMPLATE, EMAILJS_PUBLIC_KEY } from '../config/emailjs'
+import { trackContactFormSubmit } from '../lib/analytics'
 
 const LocationIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -106,6 +107,11 @@ export default function Contact() {
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_CONTACT_TEMPLATE, params, EMAILJS_PUBLIC_KEY)
       // Send confirmation to the user
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_CONTACT_CONFIRM_TEMPLATE, params, EMAILJS_PUBLIC_KEY)
+
+      trackContactFormSubmit({
+        formType: 'contact',
+        userLanguage: lang,
+      })
       setSubmitted(true)
     } catch (err) {
       setError('Something went wrong. Please email us directly at team@abletolab.org')

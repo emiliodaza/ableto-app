@@ -14,27 +14,35 @@ import CookiePolicy from './pages/CookiePolicy'
 import Store from './pages/Store'
 import usePageTracking from './hooks/usePageTracking'
 
+function AppContent() {
+  usePageTracking()
+
+  return (
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column'}}>
+      <Navbar />
+      <main style={{ flex: 1}}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/apply" element={<Apply />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/cookies" element={<CookiePolicy />} />
+          <Route path="/store" element={<Store />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  )
+}
+
 function App() {
   return (
     <BrowserRouter>
-      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-        <Navbar />
-        <main style={{ flex: 1 }}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/team" element={<Team />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/apply" element={<Apply />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="/privacy" element={<PrivacyPolicy />} />
-            <Route path="/terms" element={<TermsOfService />} />
-            <Route path="/cookies" element={<CookiePolicy />} />
-            <Route path="/store" element={<Store />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <AppContent />
     </BrowserRouter>
   )
 }

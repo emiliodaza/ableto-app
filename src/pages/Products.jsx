@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLang } from '../contexts/LanguageContext'
 import { t } from '../i18n/translations'
+import { trackCtaClick } from '../lib/analytics'
 
 const CheckIcon = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -387,6 +388,12 @@ function ProductSection({ product, reverse }) {
 
           <Link
             to="/contact"
+            onClick={() =>
+              trackCtaClick({
+                ctaText: product.getInTouch,
+                ctaLocation: 'products_card',
+              })
+            }
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -563,6 +570,12 @@ export default function Products() {
           </p>
           <Link
             to="/contact"
+            onClick={() =>
+              trackCtaClick({
+                ctaText: tr.products.ctaButton,
+                ctaLocation: 'products_bottom_cta',
+              })
+            }
             style={{
               display: 'inline-flex',
               alignItems: 'center',

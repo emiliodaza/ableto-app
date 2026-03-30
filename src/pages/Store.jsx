@@ -7,6 +7,7 @@ import {
   EMAILJS_STORE_TEMPLATE,
   EMAILJS_PUBLIC_KEY,
 } from '../config/emailjs'
+import { trackStorePageView, trackStoreProductClick } from '../lib/analytics'
 
 // ─── SVG Icons ───────────────────────────────────────────────────────────────
 
@@ -131,6 +132,18 @@ const PEN_RATE = 3.75
 export default function Store() {
   const { lang } = useLang()
   const tr = t[lang].store
+  useEffect(() =>{
+    trackStorePageView()
+  }, [])
+
+  const handleProductInterestClick = (product, info) => {
+    trackStoreProductClick({
+      productName: info.name,
+      productPrice: product.price,
+    })
+
+    setNotifyOpen(true)
+  }
 
   const formatPrice = (amount) => {
     if (lang === 'es') {
@@ -329,7 +342,7 @@ export default function Store() {
 
         {/* Notify interest button */}
         <button
-          onClick={() => setNotifyOpen(true)}
+          onClick={() => handleProductInterestClick(product, info)}
           style={{
             display: 'inline-flex',
             alignItems: 'center',

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useLang } from '../contexts/LanguageContext'
 import { t } from '../i18n/translations'
+import { trackCtaClick } from '../lib/analytics'
 
 const EyeIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -206,6 +207,10 @@ export default function Home() {
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '40px' }}>
                 <Link
                   to="/team"
+                  onClick={() => trackCtaClick({
+                    ctaText: tr.home.cta1,
+                    ctaLocation: 'home_hero'
+                  })}
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -228,6 +233,12 @@ export default function Home() {
                 </Link>
                 <Link
                   to="/products"
+                  onClick={() =>
+                    trackCtaClick({
+                      ctaText: tr.home.cta2,
+                      ctaLocation: 'home_hero',
+                    })
+                  }
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -459,6 +470,12 @@ export default function Home() {
 
             <Link
               to="/products"
+              onClick={() =>
+                trackCtaClick({
+                  ctaText: tr.home.missionCta,
+                  ctaLocation: 'home_mission'
+                })
+              }
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -625,6 +642,12 @@ export default function Home() {
               <Link
                 key={product.title}
                 to="/products"
+                onClick={() =>
+                  trackCtaClick({
+                    ctaText: product.title,
+                    ctaLocation: 'home_product_cards',
+                  })
+                }
                 style={{ textDecoration: 'none' }}
               >
                 <div

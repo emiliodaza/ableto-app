@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { members } from '../data/teamData'
 import { useLang } from '../contexts/LanguageContext'
 import { t } from '../i18n/translations'
+import { trackCtaClick } from '../lib/analytics'
 
 const LinkedInIcon = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -456,6 +457,12 @@ export default function Team() {
           </p>
           <Link
             to="/apply"
+            onClick={() =>
+              trackCtaClick({
+                ctaText: tr.team.joinCta,
+                ctaLocation: 'team_join_section',
+              })
+            }
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',
               background: '#2563eb', color: 'white', textDecoration: 'none',

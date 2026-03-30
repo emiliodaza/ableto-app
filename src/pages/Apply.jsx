@@ -3,6 +3,7 @@ import { useLang } from '../contexts/LanguageContext'
 import { t } from '../i18n/translations'
 import emailjs from '@emailjs/browser'
 import { EMAILJS_SERVICE_ID, EMAILJS_APPLY_TEMPLATE, EMAILJS_APPLY_CONFIRM_TEMPLATE, EMAILJS_PUBLIC_KEY } from '../config/emailjs'
+import { trackContactFormSubmit } from '../lib/analytics'
 
 const CheckCircleIcon = () => (
   <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -74,6 +75,10 @@ export default function Apply() {
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_APPLY_TEMPLATE, params, EMAILJS_PUBLIC_KEY)
       // Send confirmation to the applicant
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_APPLY_CONFIRM_TEMPLATE, params, EMAILJS_PUBLIC_KEY)
+      trackContactFormSubmit({
+        formType: 'application',
+        userLanguage: lang,
+      })
       setSubmitted(true)
     } catch (err) {
       setError('Something went wrong. Please email us directly at team@abletolab.org')
