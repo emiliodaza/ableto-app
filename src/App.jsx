@@ -12,6 +12,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
 import CookiePolicy from './pages/CookiePolicy'
 import Store from './pages/Store'
+import usePageTracking from './hooks/usePageTracking'
 
 function App() {
   return (
